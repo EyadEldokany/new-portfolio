@@ -1,0 +1,23 @@
+{
+  "name": "eyad-eldokany-portfolio",
+  "version": "1.0.0",
+  "description": "Eyad Eldokany's Portfolio - AI Engineer",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EyadEldokany/new-portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EyadEldokany/new-portfolio/issues"
+  },
+  "homepage": "https://github.com/EyadEldokany/new-portfolio#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
