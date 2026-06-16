@@ -1268,106 +1268,210 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
 // ═══════════════════════════════════════════════════════
 // PROJECTS
 // ═══════════════════════════════════════════════════════
-const PROJECTS_KEY = 'eyad_projects';
+<section id="projects">
+  <div class="projects-wrapper">
+    <div class="projects-header">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title">Featured <span>Projects</span></h2>
+      </div>
+      <a href="https://github.com/EyadEldokany" target="_blank" class="btn btn-ghost" style="align-self:flex-end">
+        View All on GitHub →
+      </a>
+    </div>
+    <div class="projects-grid reveal" id="projects-grid">
 
-const defaultProjects = [
-  {
-    id: 'p1',
-    visible: true,
-    featured: true,
-    icon: '🏥',
-    badge: '🧑‍⚕️ Medical Project',
-    title: 'Multimodal Medical AI Platform',
-    desc: 'Built and deployed a modular healthcare platform integrating 8 ML diagnosis models covering Heart Disease, Diabetes, Liver Disorder, Autism, Anemia, and COVID-19. Packaged each model as an independent Flask API in Docker containers with automated preprocessing and data validation.',
-    tech: ['Python', 'Flask', 'Docker', 'Scikit-Learn', 'XGBoost', 'HTML'],
-    github: 'https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform',
-    demo: ''
-  },
-  {
-    id: 'p2',
-    visible: true,
-    featured: true,
-    icon: '👤',
-    badge: '🔐 Computer Vision',
-    title: 'Face Recognition Sign-In System',
-    desc: 'Developed a secure AI-powered authentication system utilizing facial recognition, real-time database integration, and a customizable interface. Improved authentication efficiency by 40% and ensured scalability for enterprise applications.',
-    tech: ['Python', 'Flask', 'OpenCV', 'Railway'],
-    github: 'https://github.com/EyadEldokany/face-recognition-app',
-    demo: ''
-  },
-  {
-    id: 'p3',
-    visible: true,
-    featured: true,
-    icon: '🚦',
-    badge: '🧠 Deep Learning',
-    title: 'Traffic Sign Detection',
-    desc: 'Developed an intelligent traffic sign detection system leveraging YOLOv11 for real-time object detection and classification of road signs. Optimized for high accuracy and lightweight deployment on edge devices.',
-    tech: ['Python', 'YOLOv11', 'PyTorch', 'OpenCV'],
-    github: 'https://github.com/EyadEldokany/Traffic_Sign_Detection',
-    demo: ''
-  },
-  {
-    id: 'p4',
-    visible: true,
-    featured: true,
-    icon: '🌍',
-    badge: '📊 Data Science',
-    title: 'Hazardous NEO Prediction',
-    desc: 'Built an ML pipeline to predict hazardous Near-Earth Objects using NASA datasets. Applied feature engineering, ensemble learning techniques, and comprehensive model evaluation frameworks.',
-    tech: ['Python', 'Scikit-Learn', 'Pandas', 'Jupyter'],
-    github: 'https://github.com/EyadEldokany/Predicting_Hazardous_NEOs_-Nearest_Earth_Objects-',
-    demo: ''
-  },
-  {
-    id: 'p5',
-    visible: true,
-    featured: true,
-    icon: '📈',
-    badge: '⏱️ Time Series',
-    title: 'Traffic Speed Prediction',
-    desc: 'Developed an LSTM-based traffic flow forecasting system on METR-LA and PEMS-BAY datasets using transfer learning techniques for spatial-temporal pattern recognition.',
-    tech: ['Python', 'LSTM', 'PyTorch', 'Transfer Learning'],
-    github: 'https://github.com/EyadEldokany',
-    demo: ''
-  },
-  {
-    id: 'p6',
-    visible: true,
-    featured: true,
-    icon: '🛒',
-    badge: '📊 Forecasting',
-    title: 'Retail Sales Forecasting',
-    desc: 'Implemented an ensemble machine learning comparison on Rossmann and Walmart datasets using Decision Trees, Random Forest, Gradient Boosting, XGBoost, and Deep Neural Networks with extensive hyperparameter tuning.',
-    tech: ['Python', 'XGBoost', 'Scikit-Learn', 'Pandas'],
-    github: 'https://github.com/EyadEldokany',
-    demo: ''
-  },
-  {
-    id: 'p7',
-    visible: true,
-    featured: true,
-    icon: '🎮',
-    badge: '🚀 Python Project',
-    title: 'Connect 4 Game',
-    desc: 'Designed and implemented the classic Connect 4 game using Python and Tkinter. Supports Player vs Player and Player vs AI modes with a Minimax-based AI and adjustable difficulty levels.',
-    tech: ['Python', 'Tkinter'],
-    github: 'https://github.com/EyadEldokany/connect4_game',
-    demo: ''
-  },
-  {
-    id: 'p8',
-    visible: true,
-    featured: true,
-    icon: '🩻',
-    badge: '🧠 Deep Learning',
-    title: 'Alzheimer MRI Detection',
-    desc: 'Trained a ResNet-18 classifier on the Original Alzheimer MRI dataset achieving 100% validation accuracy using transfer learning with PyTorch. Built a lightweight Flask interface for real-time predictions.',
-    tech: ['PyTorch', 'ResNet-18', 'Flask', 'Torchvision'],
-    github: 'https://github.com/EyadEldokany/Alzaheimer_MRI',
-    demo: ''
-  }
-];
+      <div class="project-card featured">
+        <div class="project-top">
+          <div class="project-icon">🏥</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">🧑‍⚕️ Medical Project</div>
+        <div class="project-title">Multimodal Medical AI Platform</div>
+        <div class="project-desc">Built and deployed a modular healthcare platform integrating 8 ML diagnosis models covering Heart Disease, Diabetes, Liver Disorder, Autism, Anemia, and COVID-19. Packaged each model as an independent Flask API in a Docker container for fast, portable deployment with automated preprocessing and data validation.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">Scikit-Learn</span>
+          <span class="tech-tag">XGBoost</span>
+          <span class="tech-tag">HTML</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">👤</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany/face-recognition-app" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">🔐 Computer Vision</div>
+        <div class="project-title">Face Recognition Sign-In System</div>
+        <div class="project-desc">Developed a secure and seamless authentication system utilizing facial recognition for user sign-in. The system leverages AI-powered face detection integrated with a real-time database, offering a customizable user interface and robust security features. Improved user authentication efficiency by 40% and ensured scalability for enterprise applications.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">OpenCV</span>
+          <span class="tech-tag">Railway</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🚦</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany/Traffic_Sign_Detection" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">🧠 Deep Learning</div>
+        <div class="project-title">Traffic Sign Detection</div>
+        <div class="project-desc">Developed an intelligent traffic sign detection system leveraging YOLOv8n for real-time object detection. The model was trained on a labeled dataset of traffic signs to accurately identify and classify various road signs, enhancing driver assistance and road safety applications. Optimized the model for high accuracy while maintaining lightweight performance, making it suitable for real-time deployment in embedded systems and edge devices.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">YOLOv11</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">OpenCV</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🌍</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany/Predicting_Hazardous_NEOs_-Nearest_Earth_Objects-" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">📊 Data Science</div>
+        <div class="project-title">Hazardous NEO Prediction</div>
+        <div class="project-desc">ML pipeline to predict hazardous Near Earth Objects using NASA dataset. Applied ensemble methods, feature engineering, and model evaluation frameworks.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">Pandas</span>
+          <span class="tech-tag">Jupyter</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">📈</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">⏱️ Time Series</div>
+        <div class="project-title">Traffic Speed Prediction</div>
+        <div class="project-desc">LSTM-based traffic flow forecasting on METR-LA and PEMS-BAY datasets using transfer learning techniques for spatial-temporal pattern recognition.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">LSTM</span>
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">Transfer Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🛒</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">📊 Forecasting</div>
+        <div class="project-title">Retail Sales Forecasting</div>
+        <div class="project-desc">Ensemble ML comparison on Rossmann and Walmart datasets — Decision Tree, Random Forest, Gradient Boosting, XGBoost, and DNN with comprehensive hyperparameter tuning.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">XGBoost</span>
+          <span class="tech-tag">scikit-learn</span>
+          <span class="tech-tag">Pandas</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🎮</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany/connect4_game" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">🚀 Python Project</div>
+        <div class="project-title">Connect 4 Game</div>
+        <div class="project-desc">Designed and implemented the classic Connect 4 game with a graphical user interface (GUI) using Python and the tkinter library. The project supports Player vs. Player (PvP) and Player vs. AI (PvAI) modes, featuring an AI opponent powered by the Minimax algorithm with adjustable difficulty levels. Enhanced gameplay experience and reduced response time for AI moves by 20%.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">tkinter</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🩻</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany/Alzaheimer_MRI" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">🧠 Deep Learning</div>
+        <div class="project-title">Alzheimer MRI Detection</div>
+        <div class="project-desc">Trained a ResNet-18 classifier on the Original Alzheimer's MRI dataset (4 classes) achieving 100% validation accuracy using transfer learning with PyTorch. Built a lightweight Flask web interface for real-time MRI image uploads and predictions, packaged for web/mobile deployment.</div>
+        <div class="project-tech">
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">ResNet-18</span>
+          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">Torchvision</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-top">
+          <div class="project-icon">🌍</div>
+          <div class="project-links">
+            <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div class="project-badge">📠 Machine Learning</div>
+        <div class="project-title">Predicting Hazardous Near-Earth Objects (NEOs)</div>
+        <div class="project-desc">Built a machine learning model to predict potentially hazardous near Earth objects (NEOs) using NASA's dataset (1910-2024). Conducted data cleaning, exploratory data analysis, and addressed class imbalance. Trained multiple models, improving prediction accuracy by 25% and documenting the project comprehensively for reproducibility.</div>
+        <div class="project-tech">
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Scikit-Learn</span>
+          <span class="tech-tag">NASA Dataset</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ── EXPERIENCE ── -->
 <!-- ── EDUCATION ── -->
