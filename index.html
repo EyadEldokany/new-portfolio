@@ -1028,9 +1028,26 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
 @media (max-width: 900px) { .cert-grid { grid-template-columns: repeat(2,1fr); } }
 @media (max-width: 600px) { .cert-grid { grid-template-columns: 1fr; } }
 
+
+/* ── DRAG REORDER HANDLES (projects / certs / edu / exp) ── */
+.drag-item { cursor: default; }
+.drag-item[draggable="true"] { cursor: grab; }
+.drag-item[draggable="true"]:active { cursor: grabbing; }
+.drag-item.drag-over-top    { border-top:    2px solid var(--accent) !important; }
+.drag-item.drag-over-bottom { border-bottom: 2px solid var(--accent) !important; }
+.drag-item.is-dragging      { opacity: 0.4; }
+.drag-grip {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; color: var(--text3); font-size: 1rem;
+  cursor: grab; flex-shrink: 0; user-select: none;
+  margin-right: 0.25rem;
+}
+.drag-grip:active { cursor: grabbing; }
+.editor-header-row {
+  display: flex; align-items: center; gap: 0.5rem; width: 100%;
+}
+
 </style>
-<!-- Vercel Web Analytics -->
-<script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
 
@@ -1248,152 +1265,109 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
   </div>
 </section>
 
-<!-- ── PROJECTS ── -->
-<section id="projects">
-  <div class="projects-wrapper">
-    <div class="projects-header">
-      <div>
-        <div class="section-label">Portfolio</div>
-        <h2 class="section-title">Featured <span>Projects</span></h2>
-      </div>
-      <a href="https://github.com/EyadEldokany" target="_blank" class="btn btn-ghost" style="align-self:flex-end">
-        View All on GitHub →
-      </a>
-    </div>
-    <div class="projects-grid reveal" id="projects-grid">
+// ═══════════════════════════════════════════════════════
+// PROJECTS
+// ═══════════════════════════════════════════════════════
+const PROJECTS_KEY = 'eyad_projects';
 
-      <div class="project-card featured">
-        <div class="project-top">
-          <div class="project-icon">🏥</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub ↗
-          </a>
-          </div>
-        </div>
-        <div class="project-badge">🎓 Graduation Project</div>
-        <div class="project-title">HealthBridge — Multimodal Medical AI Platform</div>
-        <div class="project-desc">A microservices medical AI system using AWS Bedrock and the ACE (Agentic Context Engineering) pipeline. Features IntakeBot, DoctorBot, SummaryBot, and an Analysis Endpoint with RAG-augmented clinical reasoning, DynamoDB persistence, and Docker orchestration.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">FastAPI</span>
-          <span class="tech-tag">AWS Bedrock</span>
-          <span class="tech-tag">DynamoDB</span>
-          <span class="tech-tag">RAG</span>
-          <span class="tech-tag">Docker</span>
-          <span class="tech-tag">ACE Framework</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">👤</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany/face-recognition-app" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub ↗
-          </a>
-          </div>
-        </div>
-        <div class="project-badge">🔐 Computer Vision</div>
-        <div class="project-title">Face Recognition Sign-In System</div>
-        <div class="project-desc">A secure AI-powered authentication system with real-time face detection, database integration for user management, and a custom UI. Deployed on Railway with Flask backend.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Flask</span>
-          <span class="tech-tag">OpenCV</span>
-          <span class="tech-tag">Railway</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">🚦</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany/Traffic_Sign_Detection" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub ↗
-          </a>
-          </div>
-        </div>
-        <div class="project-badge">🧠 Deep Learning</div>
-        <div class="project-title">Traffic Sign Detection</div>
-        <div class="project-desc">CNN-based traffic sign recognition pipeline with YOLOv11m for real-time object detection and transfer learning techniques for improved accuracy.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">YOLOv11</span>
-          <span class="tech-tag">PyTorch</span>
-          <span class="tech-tag">OpenCV</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">🌍</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany/Predicting_Hazardous_NEOs_-Nearest_Earth_Objects-" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub ↗
-          </a>
-          </div>
-        </div>
-        <div class="project-badge">📊 Data Science</div>
-        <div class="project-title">Hazardous NEO Prediction</div>
-        <div class="project-desc">ML pipeline to predict hazardous Near Earth Objects using NASA dataset. Applied ensemble methods, feature engineering, and model evaluation frameworks.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">scikit-learn</span>
-          <span class="tech-tag">Pandas</span>
-          <span class="tech-tag">Jupyter</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">📈</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub ↗
-          </a>
-          </div>
-        </div>
-        <div class="project-badge">⏱️ Time Series</div>
-        <div class="project-title">Traffic Speed Prediction</div>
-        <div class="project-desc">LSTM-based traffic flow forecasting on METR-LA and PEMS-BAY datasets using transfer learning techniques for spatial-temporal pattern recognition.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">LSTM</span>
-          <span class="tech-tag">PyTorch</span>
-          <span class="tech-tag">Transfer Learning</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">🛒</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-            GitHub ↗
-          </a>
-          </div>
-        </div>
-        <div class="project-badge">📊 Forecasting</div>
-        <div class="project-title">Retail Sales Forecasting</div>
-        <div class="project-desc">Ensemble ML comparison on Rossmann and Walmart datasets — Decision Tree, Random Forest, Gradient Boosting, XGBoost, and DNN with comprehensive hyperparameter tuning.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">XGBoost</span>
-          <span class="tech-tag">scikit-learn</span>
-          <span class="tech-tag">Pandas</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+const defaultProjects = [
+  {
+    id: 'p1',
+    visible: true,
+    featured: true,
+    icon: '🏥',
+    badge: '🧑‍⚕️ Medical Project',
+    title: 'Multimodal Medical AI Platform',
+    desc: 'Built and deployed a modular healthcare platform integrating 8 ML diagnosis models covering Heart Disease, Diabetes, Liver Disorder, Autism, Anemia, and COVID-19. Packaged each model as an independent Flask API in Docker containers with automated preprocessing and data validation.',
+    tech: ['Python', 'Flask', 'Docker', 'Scikit-Learn', 'XGBoost', 'HTML'],
+    github: 'https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform',
+    demo: ''
+  },
+  {
+    id: 'p2',
+    visible: true,
+    featured: true,
+    icon: '👤',
+    badge: '🔐 Computer Vision',
+    title: 'Face Recognition Sign-In System',
+    desc: 'Developed a secure AI-powered authentication system utilizing facial recognition, real-time database integration, and a customizable interface. Improved authentication efficiency by 40% and ensured scalability for enterprise applications.',
+    tech: ['Python', 'Flask', 'OpenCV', 'Railway'],
+    github: 'https://github.com/EyadEldokany/face-recognition-app',
+    demo: ''
+  },
+  {
+    id: 'p3',
+    visible: true,
+    featured: true,
+    icon: '🚦',
+    badge: '🧠 Deep Learning',
+    title: 'Traffic Sign Detection',
+    desc: 'Developed an intelligent traffic sign detection system leveraging YOLOv11 for real-time object detection and classification of road signs. Optimized for high accuracy and lightweight deployment on edge devices.',
+    tech: ['Python', 'YOLOv11', 'PyTorch', 'OpenCV'],
+    github: 'https://github.com/EyadEldokany/Traffic_Sign_Detection',
+    demo: ''
+  },
+  {
+    id: 'p4',
+    visible: true,
+    featured: true,
+    icon: '🌍',
+    badge: '📊 Data Science',
+    title: 'Hazardous NEO Prediction',
+    desc: 'Built an ML pipeline to predict hazardous Near-Earth Objects using NASA datasets. Applied feature engineering, ensemble learning techniques, and comprehensive model evaluation frameworks.',
+    tech: ['Python', 'Scikit-Learn', 'Pandas', 'Jupyter'],
+    github: 'https://github.com/EyadEldokany/Predicting_Hazardous_NEOs_-Nearest_Earth_Objects-',
+    demo: ''
+  },
+  {
+    id: 'p5',
+    visible: true,
+    featured: true,
+    icon: '📈',
+    badge: '⏱️ Time Series',
+    title: 'Traffic Speed Prediction',
+    desc: 'Developed an LSTM-based traffic flow forecasting system on METR-LA and PEMS-BAY datasets using transfer learning techniques for spatial-temporal pattern recognition.',
+    tech: ['Python', 'LSTM', 'PyTorch', 'Transfer Learning'],
+    github: 'https://github.com/EyadEldokany',
+    demo: ''
+  },
+  {
+    id: 'p6',
+    visible: true,
+    featured: true,
+    icon: '🛒',
+    badge: '📊 Forecasting',
+    title: 'Retail Sales Forecasting',
+    desc: 'Implemented an ensemble machine learning comparison on Rossmann and Walmart datasets using Decision Trees, Random Forest, Gradient Boosting, XGBoost, and Deep Neural Networks with extensive hyperparameter tuning.',
+    tech: ['Python', 'XGBoost', 'Scikit-Learn', 'Pandas'],
+    github: 'https://github.com/EyadEldokany',
+    demo: ''
+  },
+  {
+    id: 'p7',
+    visible: true,
+    featured: true,
+    icon: '🎮',
+    badge: '🚀 Python Project',
+    title: 'Connect 4 Game',
+    desc: 'Designed and implemented the classic Connect 4 game using Python and Tkinter. Supports Player vs Player and Player vs AI modes with a Minimax-based AI and adjustable difficulty levels.',
+    tech: ['Python', 'Tkinter'],
+    github: 'https://github.com/EyadEldokany/connect4_game',
+    demo: ''
+  },
+  {
+    id: 'p8',
+    visible: true,
+    featured: true,
+    icon: '🩻',
+    badge: '🧠 Deep Learning',
+    title: 'Alzheimer MRI Detection',
+    desc: 'Trained a ResNet-18 classifier on the Original Alzheimer MRI dataset achieving 100% validation accuracy using transfer learning with PyTorch. Built a lightweight Flask interface for real-time predictions.',
+    tech: ['PyTorch', 'ResNet-18', 'Flask', 'Torchvision'],
+    github: 'https://github.com/EyadEldokany/Alzaheimer_MRI',
+    demo: ''
+  }
+];
 
 <!-- ── EXPERIENCE ── -->
 <!-- ── EDUCATION ── -->
@@ -2211,45 +2185,59 @@ function saveCfg() {
 // PROJECT EDITOR
 // ═══════════════════════════════════════
 function renderProjectEditor() {
-  const projects = getProjects();
-  const list = document.getElementById('project-editor-list');
-  if(!list) return;
+  var projects = getProjects();
+  var list = document.getElementById('project-editor-list');
+  if (!list) return;
   list.innerHTML = '';
-  projects.forEach((p, i) => {
-    const div = document.createElement('div');
-    div.className = 'project-editor-item';
-    div.innerHTML = `
-      <div class="project-editor-header" onclick="toggleProjectEditor(${i})">
-        <h4>${p.icon||'💡'} ${p.title||'Untitled Project'}</h4>
-        <div style="display:flex;gap:0.5rem;align-items:center">
-          <label class="visibility-toggle" onclick="event.stopPropagation()">
-            <input type="checkbox" ${p.visible?'checked':''} onchange="toggleProjectVisible(${i},this.checked)"> Visible
-          </label>
-          <button class="del-btn" onclick="event.stopPropagation();deleteProject(${i})">Delete</button>
-          <div class="toggle-btn">+</div>
-        </div>
-      </div>
-      <div class="project-editor-body" id="peb-${i}">
-        <div class="admin-form-row">
-          <div class="admin-field"><label>Icon (emoji)</label><input type="text" value="${p.icon||''}" onchange="updateProject(${i},'icon',this.value)" maxlength="4"></div>
-          <div class="admin-field"><label>Badge</label><input type="text" value="${p.badge||''}" onchange="updateProject(${i},'badge',this.value)"></div>
-        </div>
-        <div class="admin-field"><label>Title</label><input type="text" value="${p.title||''}" onchange="updateProject(${i},'title',this.value)"></div>
-        <div class="admin-field"><label>Description</label><textarea onchange="updateProject(${i},'desc',this.value)">${p.desc||''}</textarea></div>
-        <div class="admin-field"><label>Tech Tags (comma-separated)</label><input type="text" value="${p.tech||''}" onchange="updateProject(${i},'tech',this.value)"></div>
-        <div class="admin-form-row">
-          <div class="admin-field"><label>GitHub Link</label><input type="text" value="${p.link||''}" onchange="updateProject(${i},'link',this.value)" placeholder="https://github.com/..."></div>
-          <div class="admin-field"><label>Live Demo URL (optional)</label><input type="text" value="${p.demo||''}" onchange="updateProject(${i},'demo',this.value)" placeholder="https://..."></div>
-        </div>
-        <div class="admin-field" style="display:flex;align-items:center;gap:1rem">
-          <label class="visibility-toggle">
-            <input type="checkbox" ${p.featured?'checked':''} onchange="updateProject(${i},'featured',this.checked)"> Featured (spans 2 columns)
-          </label>
-        </div>
-      </div>
-    `;
+  projects.forEach(function(p, i) {
+    var div = document.createElement('div');
+    div.className = 'project-editor-item drag-item';
+    // Header row with grip
+    var headerRow = '<div class="editor-header-row">' +
+      '<span class="drag-grip" title="Drag to reorder">⠿</span>' +
+      '<div class="project-editor-header" style="flex:1" onclick="toggleProjectEditor(' + i + ')">' +
+        '<h4>' + (p.icon||'💡') + ' ' + (p.title||'Untitled Project') + '</h4>' +
+        '<div style="display:flex;gap:0.5rem;align-items:center">' +
+          '<label class="visibility-toggle" onclick="event.stopPropagation()">' +
+            '<input type="checkbox"' + (p.visible ? ' checked' : '') + '> Visible' +
+          '</label>' +
+          '<button class="del-btn" onclick="event.stopPropagation();deleteProject(' + i + ')">Delete</button>' +
+          '<div class="toggle-btn">+</div>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+    var bodyHTML =
+      '<div class="project-editor-body" id="peb-' + i + '">' +
+        '<div class="admin-form-row">' +
+          '<div class="admin-field"><label>Icon (emoji)</label><input type="text" value="' + (p.icon||'') + '" onchange="updateProject(' + i + ',\'icon\',this.value)" maxlength="4"></div>' +
+          '<div class="admin-field"><label>Badge</label><input type="text" value="' + (p.badge||'') + '" onchange="updateProject(' + i + ',\'badge\',this.value)"></div>' +
+        '</div>' +
+        '<div class="admin-field"><label>Title</label><input type="text" value="' + (p.title||'') + '" onchange="updateProject(' + i + ',\'title\',this.value)"></div>' +
+        '<div class="admin-field"><label>Description</label><textarea onchange="updateProject(' + i + ',\'desc\',this.value)">' + (p.desc||'') + '</textarea></div>' +
+        '<div class="admin-field"><label>Tech Tags (comma-separated)</label><input type="text" value="' + (p.tech||'') + '" onchange="updateProject(' + i + ',\'tech\',this.value)"></div>' +
+        '<div class="admin-form-row">' +
+          '<div class="admin-field"><label>GitHub Link</label><input type="text" value="' + (p.link||'') + '" onchange="updateProject(' + i + ',\'link\',this.value)" placeholder="https://github.com/..."></div>' +
+          '<div class="admin-field"><label>Live Demo URL (optional)</label><input type="text" value="' + (p.demo||'') + '" onchange="updateProject(' + i + ',\'demo\',this.value)" placeholder="https://..."></div>' +
+        '</div>' +
+        '<div class="admin-field" style="display:flex;align-items:center;gap:1rem">' +
+          '<label class="visibility-toggle"><input type="checkbox"' + (p.featured ? ' checked' : '') + ' onchange="updateProject(' + i + ',\'featured\',this.checked)"> Featured (spans 2 columns)</label>' +
+        '</div>' +
+      '</div>';
+    div.innerHTML = headerRow + bodyHTML;
+    // Wire checkbox in header
+    var cb = div.querySelector('.editor-header-row input[type="checkbox"]');
+    if (cb) cb.onchange = (function(idx, checkbox) {
+      return function(e) { e.stopPropagation(); toggleProjectVisible(idx, checkbox.checked); };
+    })(i, cb);
     list.appendChild(div);
   });
+  // Enable drag-to-reorder
+  makeDraggable(
+    list,
+    function() { return getProjects(); },
+    function(arr) { saveProjects(arr); },
+    function() { renderProjectEditor(); applyProjects(); }
+  );
 }
 function toggleProjectEditor(i) {
   const body = document.getElementById('peb-'+i);
@@ -2965,19 +2953,29 @@ function saveFields() {
 
 // ── ADMIN: RENDER TIMELINE EDITORS ──
 function renderTimelineEditor(type) {
-  const items  = type === 'edu' ? getEdu() : getExp();
-  const listId = type === 'edu' ? 'edu-timeline-editor' : 'exp-timeline-editor';
-  const list   = document.getElementById(listId);
+  var items  = type === 'edu' ? getEdu() : getExp();
+  var listId = type === 'edu' ? 'edu-timeline-editor' : 'exp-timeline-editor';
+  var list   = document.getElementById(listId);
   if (!list) return;
   list.innerHTML = '';
-  items.forEach((item, i) => {
-    const div = document.createElement('div');
-    div.className = 'tl-editor-item';
-    const chk = item.visible ? ' checked' : '';
-    // Build innerHTML via DOM to avoid ALL quote-escaping issues
-    const header = document.createElement('div');
+  items.forEach(function(item, i) {
+    var div = document.createElement('div');
+    div.className = 'tl-editor-item drag-item';
+    var chk = item.visible ? ' checked' : '';
+
+    // Header row with grip
+    var headerRow = document.createElement('div');
+    headerRow.className = 'editor-header-row';
+
+    var grip = document.createElement('span');
+    grip.className = 'drag-grip';
+    grip.title = 'Drag to reorder';
+    grip.textContent = '⠿';
+
+    var header = document.createElement('div');
     header.className = 'tl-editor-header';
-    header.onclick = () => toggleTLEditor(type, i);
+    header.style.flex = '1';
+    header.onclick = function() { toggleTLEditor(type, i); };
     header.innerHTML =
       '<h4>' + item.icon + ' ' + item.title +
       ' <span style="color:var(--text3);font-size:0.8rem;font-weight:400">(' + item.date + ')</span></h4>' +
@@ -2988,13 +2986,15 @@ function renderTimelineEditor(type) {
         '<button class="del-btn">Delete</button>' +
         '<div class="toggle-btn">+</div>' +
       '</div>';
-    // Wire up checkbox and delete button after setting innerHTML
-    const cb  = header.querySelector('input[type="checkbox"]');
-    const del = header.querySelector('.del-btn');
-    cb.onchange  = (e) => { e.stopPropagation(); toggleTLVisible(type, i, cb.checked); };
-    del.onclick  = (e) => { e.stopPropagation(); deleteTLItem(type, i); };
+    var cb  = header.querySelector('input[type="checkbox"]');
+    var del = header.querySelector('.del-btn');
+    cb.onchange  = (function(t, idx, checkbox) { return function(e) { e.stopPropagation(); toggleTLVisible(t, idx, checkbox.checked); }; })(type, i, cb);
+    del.onclick  = (function(t, idx) { return function(e) { e.stopPropagation(); deleteTLItem(t, idx); }; })(type, i);
 
-    const body = document.createElement('div');
+    headerRow.appendChild(grip);
+    headerRow.appendChild(header);
+
+    var body = document.createElement('div');
     body.className = 'tl-editor-body';
     body.id = 'tlb-' + type + '-' + i;
     body.innerHTML =
@@ -3013,10 +3013,21 @@ function renderTimelineEditor(type) {
       '<div class="admin-field"><label>Description</label>' +
         '<textarea id="tl-' + type + '-desc-' + i + '">' + (item.desc||'') + '</textarea></div>';
 
-    div.appendChild(header);
+    div.appendChild(headerRow);
     div.appendChild(body);
     list.appendChild(div);
   });
+
+  // Enable drag-to-reorder
+  var getArr  = type === 'edu' ? getEdu  : getExp;
+  var saveArr = type === 'edu' ? saveEduData : saveExpData;
+  var apply   = type === 'edu' ? applyEduTimeline : applyExpTimeline;
+  makeDraggable(
+    list,
+    function() { return getArr(); },
+    function(arr) { saveArr(arr); },
+    function() { renderTimelineEditor(type); apply(); }
+  );
 }
 function toggleTLEditor(type, i) {
   const el = document.getElementById('tlb-' + type + '-' + i);
@@ -3066,22 +3077,114 @@ const CERTS_KEY = 'eyad_certifications';
 
 const defaultCerts = [
   {
-    id: 'c1', visible: true,
-    title: 'Google GEAR — Gemini Enterprise Agent Ready',
-    issuer: 'Google',
+    id: 'c1',
+    visible: true,
+    title: 'Deep Learning with Keras and TensorFlow',
+    issuer: 'IBM',
     date: '2025',
-    img: '',
-    link: 'https://developers.google.com/learn/pathways/solution-ai-gemini-getting-started-android',
-    desc: 'Selected participant in the Gemini Enterprise Agent Ready program.'
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFTtju89qhIPQ/profile-treasury-document-cover-images_480/B4DZtqu9nNIkBI-/0/1767022256570?e=1782237600&v=beta&t=i2799LJj9OARYPHi8Tt9GmfVisFYUTuG0qmV90_jkBw',
+    link: 'https://www.coursera.org/account/accomplishments/records/AM9BSPTR6E5C',
+    desc: 'Advanced deep learning certification covering neural networks, CNNs, RNNs, and model development using Keras and TensorFlow.'
   },
   {
-    id: 'c2', visible: true,
-    title: 'Computer Vision Fundamentals',
-    issuer: 'NTI — National Telecommunication Institute',
-    date: '2023',
-    img: '',
+    id: 'c2',
+    visible: true,
+    title: 'Introduction to Deep Learning & Neural Networks with Keras',
+    issuer: 'IBM',
+    date: '2025',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQEp0HhM9Gz0Yg/profile-treasury-document-cover-images_480/B4DZkuSrL9HsBI-/0/1757418273737?e=1782237600&v=beta&t=OCWMam419c3tcrzJjYwpXYHTDP2N7IGhmR0BA_jgipk',
+    link: 'https://www.coursera.org/account/accomplishments/records/DBMK9G5ETWRI',
+    desc: 'Fundamental training in deep learning concepts, neural networks, and building models with Keras.'
+  },
+  {
+    id: 'c3',
+    visible: true,
+    title: 'Getting Started with Deep Learning',
+    issuer: 'NVIDIA',
+    date: '2025',
+    img: 'https://media.licdn.com/dms/image/v2/D4E2DAQEPAbOmJITmTw/profile-treasury-image-shrink_1920_1920/B4EZ7Rbrg0HsAk-/0/1781630155114?e=1782237600&v=beta&t=7RXU4RoJbYBisP7CNPMvyUdmizQyMIjliWUOcKoEbRM',
+    link: 'https://learn.nvidia.com/certificates?id=ckeQcaitR3-wd0A-YNSo_g',
+    desc: 'Introduction to deep learning fundamentals, neural networks, and GPU-accelerated AI development.'
+  },
+  {
+    id: 'c4',
+    visible: true,
+    title: 'Machine Learning with Python',
+    issuer: 'IBM',
+    date: '2025',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQEvCexuY1yyUQ/profile-treasury-image-shrink_1920_1920/B4DZhatGipGsAc-/0/1753868431444?e=1782237600&v=beta&t=i7AmS7q1nc4KveXz1O4RV9MsfNaqSr5lW4yjpVwLye8',
+    link: 'https://www.coursera.org/account/accomplishments/records/FFCVZQHTV896',
+    desc: 'Comprehensive machine learning certification covering supervised and unsupervised learning using Python.'
+  },
+  {
+    id: 'c5',
+    visible: true,
+    title: 'Cisco Certified Network Associate Routing and Switching (CCNA)',
+    issuer: 'Cisco',
+    date: '2025',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQGRr7Sn5DD8jg/profile-treasury-document-cover-images_1280/profile-treasury-document-cover-images_1280/0/1737898925579?e=1782237600&v=beta&t=glmnYQn4hjaa6eCrYrBML61GOTebcYKHLs-5gg1-UZ0',
+    link: 'https://www.credly.com/badges/6c470060-ca02-4f22-b3a5-7036fd9aabe6/public_url',
+    desc: 'Professional certification in networking fundamentals, routing, switching, and network administration.'
+  },
+  {
+    id: 'c6',
+    visible: true,
+    title: 'Intro to AI',
+    issuer: '365 Data Science',
+    date: '2024',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQF2R2oSE59JEw/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1730889954226?e=1782237600&v=beta&t=wCTxQnNABa8rw7zY0IWLX2wmgHtJZQHnffu34AdG6ZA',
+    link: 'https://learn.365datascience.com/c/f64c940273',
+    desc: 'Introduction to artificial intelligence concepts, machine learning foundations, and modern AI applications.'
+  },
+  {
+    id: 'c7',
+    visible: true,
+    title: 'Data Science and Machine Learning',
+    issuer: 'Microsoft Student Club - EELU',
+    date: '2024',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQGEL0cUcD-KFA/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1730555211573?e=1782237600&v=beta&t=GSZSHuv4jK0dhVdNCtaBWhyavP3ntDLaz7WxHUAD0vA',
     link: '',
-    desc: 'Intensive training covering CNNs, transfer learning, and image classification.'
+    desc: 'Training program covering data science fundamentals, machine learning algorithms, and practical AI applications.'
+  },
+  {
+    id: 'c8',
+    visible: true,
+    title: 'Python Introduction to Data Science and Machine Learning',
+    issuer: 'Udemy',
+    date: '2024',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFGTs5CLTwg5Q/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1728319616319?e=1782237600&v=beta&t=aPDCO-vaBuqg7DAe9WGUxIfdJrYVqi95Fhs6YtBxAoE',
+    link: 'https://www.udemy.com/certificate/UC-6225cf40-29dd-4877-b641-ee06c5020119/',
+    desc: 'Practical training in Python programming for data science, analytics, and machine learning development.'
+  },
+  {
+    id: 'c9',
+    visible: true,
+    title: 'HCIA-AI V3.5',
+    issuer: 'Huawei',
+    date: '2024',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFpaXLIbXOe6A/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1727377478012?e=1782237600&v=beta&t=VReOdjyuJ9ASrjDraNsd55G07EY0RqogpFwC9SkTSzE',
+    link: '',
+    desc: 'Huawei certification covering artificial intelligence fundamentals, machine learning concepts, and AI applications.'
+  },
+  {
+    id: 'c10',
+    visible: true,
+    title: 'Microsoft Certified: Security, Compliance, and Identity Fundamentals',
+    issuer: 'Microsoft',
+    date: '2024',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFuBbyinmQcpw/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1725975436738?e=1782237600&v=beta&t=8eTzFie-yoVVGIZjKE_hRiSfTYNCEo2WGbJjrcCclX8',
+    link: 'https://www.credly.com/badges/95e23b91-1281-45b8-8770-3de0ee26c9e7/linked_in?t=sjlkiu',
+    desc: 'Certification covering security, compliance, identity concepts, and Microsoft cloud security solutions.'
+  },
+  {
+    id: 'c11',
+    visible: true,
+    title: 'CCNAv7',
+    issuer: 'Cisco',
+    date: '2024',
+    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQG-myDPR3o9Pw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1716463628725?e=1782237600&v=beta&t=TLRCkGbX_CApVqjXRLsI7SFd-45icjhHfL9SbY_4WJc',
+    link: 'https://www.credly.com/badges/f29fb375-519b-4045-9f38-a90c0335017b',
+    desc: 'Cisco Networking Academy certification covering networking concepts, routing, switching, and network troubleshooting.'
   }
 ];
 
@@ -3201,12 +3304,19 @@ function renderCertEditor() {
   list.innerHTML = '';
   certs.forEach(function(c, i) {
     var div = document.createElement('div');
-    div.className = 'cert-editor-item';
+    div.className = 'cert-editor-item drag-item';
 
     var header = document.createElement('div');
-    header.className = 'cert-editor-header';
-    header.onclick = function() { toggleCertEditor(i); };
-    header.innerHTML =
+    header.className = 'editor-header-row';
+    var grip = document.createElement('span');
+    grip.className = 'drag-grip';
+    grip.title = 'Drag to reorder';
+    grip.textContent = '⠿';
+    var headerInner = document.createElement('div');
+    headerInner.className = 'cert-editor-header';
+    headerInner.style.flex = '1';
+    headerInner.onclick = function() { toggleCertEditor(i); };
+    headerInner.innerHTML =
       '<h4>🏅 ' + (c.title || 'Untitled') + '</h4>' +
       '<div style="display:flex;gap:0.5rem;align-items:center">' +
         '<label class="visibility-toggle" onclick="event.stopPropagation()">' +
@@ -3215,11 +3325,12 @@ function renderCertEditor() {
         '<button class="del-btn">Delete</button>' +
         '<div class="toggle-btn">+</div>' +
       '</div>';
-
-    var cb  = header.querySelector('input[type="checkbox"]');
-    var del = header.querySelector('.del-btn');
-    cb.onchange  = function(e) { e.stopPropagation(); var cs=getCerts(); cs[i].visible=cb.checked; saveCertsData(cs); applyCerts(); };
-    del.onclick  = function(e) { e.stopPropagation(); deleteCert(i); };
+    var cb  = headerInner.querySelector('input[type="checkbox"]');
+    var del = headerInner.querySelector('.del-btn');
+    cb.onchange  = (function(idx, chk) { return function(e) { e.stopPropagation(); var cs=getCerts(); cs[idx].visible=chk.checked; saveCertsData(cs); applyCerts(); }; })(i, cb);
+    del.onclick  = (function(idx) { return function(e) { e.stopPropagation(); deleteCert(idx); }; })(i);
+    header.appendChild(grip);
+    header.appendChild(headerInner);
 
     var body = document.createElement('div');
     body.className = 'cert-editor-body';
@@ -3250,8 +3361,14 @@ function renderCertEditor() {
     div.appendChild(body);
     list.appendChild(div);
   });
+  // Enable drag-to-reorder
+  makeDraggable(
+    list,
+    function() { return getCerts(); },
+    function(arr) { saveCertsData(arr); },
+    function() { renderCertEditor(); applyCerts(); }
+  );
 }
-
 function toggleCertEditor(i) {
   var el = document.getElementById('ceb-' + i);
   if (el) el.classList.toggle('open');
@@ -3407,6 +3524,64 @@ function saveSectionOrder() {
   applySectionOrder();
   var m = document.getElementById('order-save-msg');
   if (m) { m.style.opacity = '1'; setTimeout(function() { m.style.opacity = '0'; }, 2000); }
+}
+
+
+// ═══════════════════════════════════════
+// SHARED DRAG-TO-REORDER UTILITY
+// ═══════════════════════════════════════
+function makeDraggable(container, getArr, saveArr, onReorder) {
+  var items = Array.from(container.children);
+  var src = null;
+  items.forEach(function(item, i) {
+    item.draggable = true;
+    item.classList.add('drag-item');
+    item.dataset.di = i;
+    item.addEventListener('dragstart', function(e) {
+      src = item;
+      e.dataTransfer.effectAllowed = 'move';
+      setTimeout(function() { item.classList.add('is-dragging'); }, 0);
+    });
+    item.addEventListener('dragend', function() {
+      item.classList.remove('is-dragging');
+      container.querySelectorAll('.drag-over-top,.drag-over-bottom')
+        .forEach(function(el) { el.classList.remove('drag-over-top','drag-over-bottom'); });
+      src = null;
+    });
+    item.addEventListener('dragover', function(e) {
+      e.preventDefault();
+      if (!src || src === item) return;
+      item.classList.remove('drag-over-top','drag-over-bottom');
+      var rect = item.getBoundingClientRect();
+      var mid  = rect.top + rect.height / 2;
+      item.classList.add(e.clientY < mid ? 'drag-over-top' : 'drag-over-bottom');
+    });
+    item.addEventListener('dragleave', function() {
+      item.classList.remove('drag-over-top','drag-over-bottom');
+    });
+    item.addEventListener('drop', function(e) {
+      e.preventDefault();
+      item.classList.remove('drag-over-top','drag-over-bottom');
+      if (!src || src === item) return;
+      var fromIdx = parseInt(src.dataset.di);
+      var toIdx   = parseInt(item.dataset.di);
+      var rect = item.getBoundingClientRect();
+      var insertBefore = e.clientY < rect.top + rect.height / 2;
+      var arr = getArr();
+      var moved = arr.splice(fromIdx, 1)[0];
+      var newTo = toIdx > fromIdx ? toIdx - 1 : toIdx;
+      if (!insertBefore && newTo === fromIdx - 1) newTo = toIdx;
+      if (!insertBefore) newTo = toIdx > fromIdx ? toIdx : toIdx;
+      // simple recalc
+      arr = getArr();
+      var m2 = arr.splice(fromIdx, 1)[0];
+      var dest = toIdx > fromIdx ? (insertBefore ? toIdx - 1 : toIdx) : (insertBefore ? toIdx : toIdx + 1);
+      dest = Math.max(0, Math.min(arr.length, dest));
+      arr.splice(dest, 0, m2);
+      saveArr(arr);
+      onReorder();
+    });
+  });
 }
 
 </script>
