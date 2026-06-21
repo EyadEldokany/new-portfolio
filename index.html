@@ -40,6 +40,8 @@
   --glow:rgba(37,99,235,0.12);
 }
 html{scroll-behavior:smooth;font-size:16px}
+body.loading-data{opacity:0}
+body{opacity:1;transition:opacity 0.25s ease}
 body{
   background:var(--bg);color:var(--text);
   font-family:'DM Sans',sans-serif;font-weight:400;
@@ -1048,6 +1050,8 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
 }
 
 </style>
+<!-- Supabase JS Client (for shared, cross-device data storage) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 </head>
 <body>
 
@@ -1265,7 +1269,7 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
   </div>
 </section>
 
-<!--PROJECTS-->
+<!-- ── PROJECTS ── -->
 <section id="projects">
   <div class="projects-wrapper">
     <div class="projects-header">
@@ -1284,21 +1288,22 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <div class="project-icon">🏥</div>
           <div class="project-links">
             <a href="https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub ↗
+          </a>
           </div>
         </div>
-        <div class="project-badge">🧑‍⚕️ Medical Project</div>
-        <div class="project-title">Multimodal Medical AI Platform</div>
-        <div class="project-desc">Built and deployed a modular healthcare platform integrating 8 ML diagnosis models covering Heart Disease, Diabetes, Liver Disorder, Autism, Anemia, and COVID-19. Packaged each model as an independent Flask API in a Docker container for fast, portable deployment with automated preprocessing and data validation.</div>
+        <div class="project-badge">🎓 Graduation Project</div>
+        <div class="project-title">HealthBridge — Multimodal Medical AI Platform</div>
+        <div class="project-desc">A microservices medical AI system using AWS Bedrock and the ACE (Agentic Context Engineering) pipeline. Features IntakeBot, DoctorBot, SummaryBot, and an Analysis Endpoint with RAG-augmented clinical reasoning, DynamoDB persistence, and Docker orchestration.</div>
         <div class="project-tech">
           <span class="tech-tag">Python</span>
-          <span class="tech-tag">Flask</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">AWS Bedrock</span>
+          <span class="tech-tag">DynamoDB</span>
+          <span class="tech-tag">RAG</span>
           <span class="tech-tag">Docker</span>
-          <span class="tech-tag">Scikit-Learn</span>
-          <span class="tech-tag">XGBoost</span>
-          <span class="tech-tag">HTML</span>
+          <span class="tech-tag">ACE Framework</span>
         </div>
       </div>
 
@@ -1307,14 +1312,14 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <div class="project-icon">👤</div>
           <div class="project-links">
             <a href="https://github.com/EyadEldokany/face-recognition-app" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub ↗
+          </a>
           </div>
         </div>
         <div class="project-badge">🔐 Computer Vision</div>
         <div class="project-title">Face Recognition Sign-In System</div>
-        <div class="project-desc">Developed a secure and seamless authentication system utilizing facial recognition for user sign-in. The system leverages AI-powered face detection integrated with a real-time database, offering a customizable user interface and robust security features. Improved user authentication efficiency by 40% and ensured scalability for enterprise applications.</div>
+        <div class="project-desc">A secure AI-powered authentication system with real-time face detection, database integration for user management, and a custom UI. Deployed on Railway with Flask backend.</div>
         <div class="project-tech">
           <span class="tech-tag">Python</span>
           <span class="tech-tag">Flask</span>
@@ -1328,14 +1333,14 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <div class="project-icon">🚦</div>
           <div class="project-links">
             <a href="https://github.com/EyadEldokany/Traffic_Sign_Detection" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub ↗
+          </a>
           </div>
         </div>
         <div class="project-badge">🧠 Deep Learning</div>
         <div class="project-title">Traffic Sign Detection</div>
-        <div class="project-desc">Developed an intelligent traffic sign detection system leveraging YOLOv8n for real-time object detection. The model was trained on a labeled dataset of traffic signs to accurately identify and classify various road signs, enhancing driver assistance and road safety applications. Optimized the model for high accuracy while maintaining lightweight performance, making it suitable for real-time deployment in embedded systems and edge devices.</div>
+        <div class="project-desc">CNN-based traffic sign recognition pipeline with YOLOv11m for real-time object detection and transfer learning techniques for improved accuracy.</div>
         <div class="project-tech">
           <span class="tech-tag">Python</span>
           <span class="tech-tag">YOLOv11</span>
@@ -1349,9 +1354,9 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <div class="project-icon">🌍</div>
           <div class="project-links">
             <a href="https://github.com/EyadEldokany/Predicting_Hazardous_NEOs_-Nearest_Earth_Objects-" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub ↗
+          </a>
           </div>
         </div>
         <div class="project-badge">📊 Data Science</div>
@@ -1370,9 +1375,9 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <div class="project-icon">📈</div>
           <div class="project-links">
             <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub ↗
+          </a>
           </div>
         </div>
         <div class="project-badge">⏱️ Time Series</div>
@@ -1391,9 +1396,9 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <div class="project-icon">🛒</div>
           <div class="project-links">
             <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub ↗
+          </a>
           </div>
         </div>
         <div class="project-badge">📊 Forecasting</div>
@@ -1404,66 +1409,6 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <span class="tech-tag">XGBoost</span>
           <span class="tech-tag">scikit-learn</span>
           <span class="tech-tag">Pandas</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">🎮</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany/connect4_game" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
-          </div>
-        </div>
-        <div class="project-badge">🚀 Python Project</div>
-        <div class="project-title">Connect 4 Game</div>
-        <div class="project-desc">Designed and implemented the classic Connect 4 game with a graphical user interface (GUI) using Python and the tkinter library. The project supports Player vs. Player (PvP) and Player vs. AI (PvAI) modes, featuring an AI opponent powered by the Minimax algorithm with adjustable difficulty levels. Enhanced gameplay experience and reduced response time for AI moves by 20%.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">tkinter</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">🩻</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany/Alzaheimer_MRI" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
-          </div>
-        </div>
-        <div class="project-badge">🧠 Deep Learning</div>
-        <div class="project-title">Alzheimer MRI Detection</div>
-        <div class="project-desc">Trained a ResNet-18 classifier on the Original Alzheimer's MRI dataset (4 classes) achieving 100% validation accuracy using transfer learning with PyTorch. Built a lightweight Flask web interface for real-time MRI image uploads and predictions, packaged for web/mobile deployment.</div>
-        <div class="project-tech">
-          <span class="tech-tag">PyTorch</span>
-          <span class="tech-tag">ResNet-18</span>
-          <span class="tech-tag">Flask</span>
-          <span class="tech-tag">Torchvision</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div class="project-top">
-          <div class="project-icon">🌍</div>
-          <div class="project-links">
-            <a href="https://github.com/EyadEldokany" target="_blank" class="project-link project-link-gh" title="View on GitHub">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
-              GitHub ↗
-            </a>
-          </div>
-        </div>
-        <div class="project-badge">📠 Machine Learning</div>
-        <div class="project-title">Predicting Hazardous Near-Earth Objects (NEOs)</div>
-        <div class="project-desc">Built a machine learning model to predict potentially hazardous near Earth objects (NEOs) using NASA's dataset (1910-2024). Conducted data cleaning, exploratory data analysis, and addressed class imbalance. Trained multiple models, improving prediction accuracy by 25% and documenting the project comprehensively for reproducibility.</div>
-        <div class="project-tech">
-          <span class="tech-tag">Python</span>
-          <span class="tech-tag">Scikit-Learn</span>
-          <span class="tech-tag">NASA Dataset</span>
         </div>
       </div>
 
@@ -1907,15 +1852,7 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
         <div class="admin-panel" id="panel-settings">
           <h2>⚙️ Settings & Credentials</h2>
           <div class="cred-note">
-            ⚠️ Admin credentials are stored locally in your browser. Change the email and password below to secure your admin panel.
-          </div>
-          <div class="admin-field">
-            <label>Admin Email</label>
-            <input type="email" id="cfg-admin-email" placeholder="admin@portfolio.com">
-          </div>
-          <div class="admin-field">
-            <label>Current Password (to confirm)</label>
-            <input type="password" id="cfg-curr-pass" placeholder="Current password">
+            🔒 Your portfolio content is now stored in a shared Supabase database — edits made here are visible to everyone, on any device. Admin sign-in is handled by Supabase Auth. To change your admin <strong>email</strong>, do so from your Supabase Dashboard → Authentication → Users. You can update your <strong>password</strong> below.
           </div>
           <div class="admin-field">
             <label>New Password</label>
@@ -1925,7 +1862,7 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
             <label>Confirm New Password</label>
             <input type="password" id="cfg-conf-pass" placeholder="Confirm new password">
           </div>
-          <button class="admin-save-btn" onclick="saveCredentials()">Update Credentials</button>
+          <button class="admin-save-btn" onclick="saveCredentials()">Update Password</button>
           <span id="cred-msg" style="margin-left:1rem;font-size:0.85rem"></span>
           <hr style="border:none;border-top:1px solid var(--border);margin:2rem 0">
           <div class="admin-field">
@@ -1944,11 +1881,80 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
 
 <script>
 // ═══════════════════════════════════════
-// DATA STORE — localStorage-backed CMS
+// DATA STORE — Supabase-backed shared CMS
 // ═══════════════════════════════════════
-const STORE_KEY = 'eyad_portfolio_data';
-const AUTH_KEY = 'eyad_portfolio_auth';
+const STORE_KEY = 'eyad_portfolio_data'; // legacy local key name, kept for the 'config' dataCache slot
 const SESSION_KEY = 'eyad_admin_session';
+
+// ═══════════════════════════════════════
+// SUPABASE — shared database connection
+// ═══════════════════════════════════════
+// Credentials are NOT hardcoded here. They're set as Environment Variables
+// in your Vercel project (Settings → Environment Variables) and served at
+// runtime by the /api/config.js serverless function — see that file for setup.
+//
+// FALLBACK (optional): if you're testing locally without Vercel/the API route,
+// you can temporarily hardcode values here instead:
+const FALLBACK_SUPABASE_URL = '';
+const FALLBACK_SUPABASE_ANON_KEY = '';
+
+let sb = null;
+let sbReady = false;
+let dataCache = {}; // in-memory mirror of the portfolio_data table, keyed by `key`
+
+async function fetchSupabaseConfig() {
+  try {
+    const res = await fetch('/api/config');
+    if (!res.ok) throw new Error('config endpoint returned ' + res.status);
+    const cfg = await res.json();
+    if (!cfg.url || !cfg.anonKey) throw new Error('config endpoint missing url/anonKey');
+    return cfg;
+  } catch (e) {
+    console.warn('Could not load /api/config (' + e.message + '), falling back to local constants.');
+    if (FALLBACK_SUPABASE_URL && FALLBACK_SUPABASE_ANON_KEY) {
+      return { url: FALLBACK_SUPABASE_URL, anonKey: FALLBACK_SUPABASE_ANON_KEY };
+    }
+    return null;
+  }
+}
+
+async function initSupabase() {
+  try {
+    if (typeof window.supabase === 'undefined') {
+      console.error('Supabase client library failed to load.');
+      return false;
+    }
+    const cfg = await fetchSupabaseConfig();
+    if (!cfg) {
+      console.error('No Supabase credentials available (set env vars on Vercel or fill the fallback constants).');
+      return false;
+    }
+    sb = window.supabase.createClient(cfg.url, cfg.anonKey);
+    await refreshCache();
+    sbReady = true;
+    return true;
+  } catch (e) {
+    console.error('Supabase init failed:', e);
+    return false;
+  }
+}
+
+async function refreshCache() {
+  if (!sb) return false;
+  const { data, error } = await sb.from('portfolio_data').select('key, value');
+  if (error) { console.error('Supabase load error:', error.message); return false; }
+  data.forEach(row => { dataCache[row.key] = row.value; });
+  return true;
+}
+
+// Fire-and-forget write to Supabase; cache is updated immediately for instant UI feedback
+async function saveKey(key, value) {
+  dataCache[key] = value;
+  if (!sb) return;
+  const { error } = await sb.from('portfolio_data')
+    .upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+  if (error) console.error('Supabase save error [' + key + ']:', error.message);
+}
 
 const defaults = {
   firstname: 'Eyad',
@@ -1969,9 +1975,9 @@ const defaults = {
   aboutp2: "I'm currently building <strong>HealthBridge</strong>, a multimodal medical AI platform powered by AWS Bedrock, FastAPI, and the ACE (Agentic Context Engineering) framework — featuring intelligent intake bots, diagnostic agents, and RAG-augmented clinical reasoning.",
   aboutp3: "Beyond medical AI, I've worked on <strong>traffic sign detection</strong>, <strong>deepfake detection</strong>, <strong>face recognition systems</strong>, and time-series forecasting. I thrive at the intersection of research and production.",
   'contact-email': 'eyad.eldokany@gmail.com',
-  linkedin: 'https://linkedin.com/in/eyad-eldokany-89aa89252',
+  linkedin: 'https://linkedin.com/in/eyad-eldokany',
   github: 'https://github.com/EyadEldokany',
-  purl: 'https://eyadeldokany.vercel.app',
+  purl: 'hhttps://eyad-eldokany-portfolio-kappa.vercel.app/',
   theme: 'dark'
 };
 
@@ -1993,35 +1999,25 @@ const defaultSkills = [
   {icon:'📊',name:'Data Science',pills:'NumPy,Pandas,Matplotlib,Plotly,SciPy,XGBoost'}
 ];
 
-const defaultAuth = { email: 'admin@portfolio.com', password: 'Admin@2026' };
-
 function getData() {
-  try { return Object.assign({}, defaults, JSON.parse(localStorage.getItem(STORE_KEY) || '{}')); }
-  catch { return Object.assign({}, defaults); }
+  return Object.assign({}, defaults, dataCache.config || {});
 }
-function saveData(d) { localStorage.setItem(STORE_KEY, JSON.stringify(d)); }
+function saveData(d) { saveKey('config', d); }
+
 function getProjects() {
-  try {
-    const stored = JSON.parse(localStorage.getItem('eyad_projects'));
-    if (!stored) return defaultProjects;
-    // Merge: fill any missing fields from defaultProjects by index
-    return stored.map((p, i) => {
-      const def = defaultProjects[i] || {};
-      return Object.assign({}, def, p);   // stored values win, but missing keys fall back to defaults
-    });
-  } catch { return defaultProjects; }
+  const stored = dataCache.projects;
+  if (!stored) return defaultProjects;
+  return stored.map((p, i) => {
+    const def = defaultProjects[i] || {};
+    return Object.assign({}, def, p);
+  });
 }
-function saveProjects(p) { localStorage.setItem('eyad_projects', JSON.stringify(p)); }
+function saveProjects(p) { saveKey('projects', p); }
+
 function getSkills() {
-  try { const s = JSON.parse(localStorage.getItem('eyad_skills')); return s || defaultSkills; }
-  catch { return defaultSkills; }
+  return dataCache.skills || defaultSkills;
 }
-function saveSkillsData(s) { localStorage.setItem('eyad_skills', JSON.stringify(s)); }
-function getAuth() {
-  try { return Object.assign({}, defaultAuth, JSON.parse(localStorage.getItem(AUTH_KEY) || '{}')); }
-  catch { return Object.assign({}, defaultAuth); }
-}
-function saveAuth(a) { localStorage.setItem(AUTH_KEY, JSON.stringify(a)); }
+function saveSkillsData(s) { saveKey('skills', s); }
 
 // ═══════════════════════════════════════
 // APPLY DATA TO DOM
@@ -2183,19 +2179,24 @@ function checkRoute() {
     showAdminOverlay();
   }
 }
-function showAdminOverlay() {
+async function showAdminOverlay() {
   document.getElementById('admin-overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
-  const session = sessionStorage.getItem(SESSION_KEY);
-  if(session === 'true') { showDash(); } else { showLoginForm(); }
+  if (sb) {
+    const { data: { session } } = await sb.auth.getSession();
+    if (session) { sessionStorage.setItem(SESSION_KEY, 'true'); showDash(); return; }
+  }
+  sessionStorage.removeItem(SESSION_KEY);
+  showLoginForm();
 }
 function showLoginForm() {
   document.getElementById('admin-login-section').style.display = 'flex';
   document.getElementById('admin-dash').style.display = 'none';
 }
-function showDash() {
+async function showDash() {
   document.getElementById('admin-login-section').style.display = 'none';
   document.getElementById('admin-dash').style.display = 'block';
+  await refreshCache(); // pull the latest content in case it was edited from another device
   loadAdminForms();
 }
 function closeAdmin() {
@@ -2203,21 +2204,27 @@ function closeAdmin() {
   document.body.style.overflow = '';
   window.location.hash = '';
 }
-function adminLogin() {
+async function adminLogin() {
   const email = document.getElementById('admin-email-input').value.trim();
   const pass = document.getElementById('admin-pass-input').value;
-  const auth = getAuth();
   const err = document.getElementById('admin-err');
-  if(email === auth.email && pass === auth.password) {
+  const btn = document.querySelector('.admin-login-btn');
+  if (!sb) { err.textContent = '⚠ Database not connected yet. Please try again.'; err.style.display = 'block'; return; }
+  if (btn) { btn.textContent = 'Signing in…'; btn.disabled = true; }
+  const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
+  if (btn) { btn.textContent = 'Sign In →'; btn.disabled = false; }
+  if (error) {
+    err.textContent = '⚠ Invalid credentials. Please try again.';
+    err.style.display = 'block';
+    document.getElementById('admin-pass-input').value = '';
+  } else {
     sessionStorage.setItem(SESSION_KEY, 'true');
     err.style.display = 'none';
     showDash();
-  } else {
-    err.style.display = 'block';
-    document.getElementById('admin-pass-input').value = '';
   }
 }
-function adminLogout() {
+async function adminLogout() {
+  if (sb) await sb.auth.signOut();
   sessionStorage.removeItem(SESSION_KEY);
   showLoginForm();
 }
@@ -2246,9 +2253,6 @@ function loadAdminForms() {
     const el = document.getElementById('cfg-' + f);
     if(el) el.value = d[f] || '';
   });
-  const auth = getAuth();
-  const ae = document.getElementById('cfg-admin-email');
-  if(ae) ae.value = auth.email;
   renderProjectEditor();
   renderSkillEditor();
   renderCustomSectionAdminList();
@@ -2433,25 +2437,22 @@ function addSkillCat() {
 // ═══════════════════════════════════════
 // SAVE CREDENTIALS
 // ═══════════════════════════════════════
-function saveCredentials() {
-  const newEmail = document.getElementById('cfg-admin-email').value.trim();
-  const currPass = document.getElementById('cfg-curr-pass').value;
+async function saveCredentials() {
   const newPass = document.getElementById('cfg-new-pass').value;
   const confPass = document.getElementById('cfg-conf-pass').value;
   const msg = document.getElementById('cred-msg');
-  const auth = getAuth();
-  if(!newEmail) { msg.textContent = '⚠ Email required'; msg.style.color='#ef4444'; return; }
-  if(currPass !== auth.password) { msg.textContent = '⚠ Current password incorrect'; msg.style.color='#ef4444'; return; }
-  const updAuth = {email: newEmail, password: auth.password};
-  if(newPass) {
-    if(newPass.length < 6) { msg.textContent = '⚠ Password must be 6+ characters'; msg.style.color='#ef4444'; return; }
-    if(newPass !== confPass) { msg.textContent = '⚠ Passwords do not match'; msg.style.color='#ef4444'; return; }
-    updAuth.password = newPass;
+  if (!sb) { msg.textContent = '⚠ Database not connected'; msg.style.color = '#ef4444'; return; }
+  if (!newPass) { msg.textContent = '⚠ Enter a new password'; msg.style.color = '#ef4444'; return; }
+  if (newPass.length < 6) { msg.textContent = '⚠ Password must be 6+ characters'; msg.style.color = '#ef4444'; return; }
+  if (newPass !== confPass) { msg.textContent = '⚠ Passwords do not match'; msg.style.color = '#ef4444'; return; }
+  const { error } = await sb.auth.updateUser({ password: newPass });
+  if (error) {
+    msg.textContent = '⚠ ' + error.message;
+    msg.style.color = '#ef4444';
+    return;
   }
-  saveAuth(updAuth);
-  msg.textContent = '✓ Credentials updated!';
+  msg.textContent = '✓ Password updated!';
   msg.style.color = '#22c55e';
-  document.getElementById('cfg-curr-pass').value = '';
   document.getElementById('cfg-new-pass').value = '';
   document.getElementById('cfg-conf-pass').value = '';
   setTimeout(() => msg.textContent = '', 3000);
@@ -2469,7 +2470,10 @@ window.addEventListener('scroll', () => {
 // ═══════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+  document.body.classList.add('loading-data');
+  await initSupabase(); // fetch shared content from the database before first paint
+  document.body.classList.remove('loading-data');
   applyData();
   applyProjects();
   applySkills();
@@ -2487,6 +2491,18 @@ document.addEventListener('DOMContentLoaded', () => {
   applyCerts();
   applySectionOrder();
 
+  // Keep the public page in sync with edits made on other devices/tabs in real time
+  if (sb) {
+    sb.channel('portfolio_data_changes')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'portfolio_data' }, () => {
+        refreshCache().then(() => {
+          applyData(); applyProjects(); applySkills();
+          applyInfoFields(); applyEduTimeline(); applyExpTimeline();
+          applyCerts(); renderCustomSectionsOnPage(); applySectionOrder();
+        });
+      })
+      .subscribe();
+  }
 });
 
 
@@ -2496,10 +2512,9 @@ document.addEventListener('DOMContentLoaded', () => {
 const SECTIONS_KEY = 'eyad_custom_sections';
 
 function getCustomSections() {
-  try { return JSON.parse(localStorage.getItem(SECTIONS_KEY) || '[]'); }
-  catch { return []; }
+  return dataCache.sections || [];
 }
-function saveCustomSections(s) { localStorage.setItem(SECTIONS_KEY, JSON.stringify(s)); }
+function saveCustomSections(s) { saveKey('sections', s); }
 
 // ── SECTION TYPE SELECTOR ──
 let selectedSectionType = 'cards';
@@ -2924,12 +2939,12 @@ const defaultExp = [
   { id:'x2', date:'2023', icon:'👨‍🏫', title:'AI Course Instructor', org:'Face Recognition Web Application Course', desc:'Designed and delivered a hands-on course on building face recognition web applications, covering CV fundamentals, model deployment, and Flask integration.', visible:true },
 ];
 
-function getFields()   { try { return JSON.parse(localStorage.getItem(FIELDS_KEY)) || defaultFields; } catch { return defaultFields; } }
-function getEdu()      { try { return JSON.parse(localStorage.getItem(EDU_KEY))    || defaultEdu;    } catch { return defaultEdu; } }
-function getExp()      { try { return JSON.parse(localStorage.getItem(EXP_KEY))    || defaultExp;    } catch { return defaultExp; } }
-function saveFieldsData(d) { localStorage.setItem(FIELDS_KEY, JSON.stringify(d)); }
-function saveEduData(d)    { localStorage.setItem(EDU_KEY,    JSON.stringify(d)); }
-function saveExpData(d)    { localStorage.setItem(EXP_KEY,    JSON.stringify(d)); }
+function getFields()   { return dataCache.fields || defaultFields; }
+function getEdu()      { return dataCache.edu    || defaultEdu; }
+function getExp()      { return dataCache.exp    || defaultExp; }
+function saveFieldsData(d) { saveKey('fields', d); }
+function saveEduData(d)    { saveKey('edu', d); }
+function saveExpData(d)    { saveKey('exp', d); }
 
 // ── RENDER ABOUT INFO CARD (portfolio page) ──
 function applyInfoFields() {
@@ -3179,122 +3194,29 @@ const CERTS_KEY = 'eyad_certifications';
 
 const defaultCerts = [
   {
-    id: 'c1',
-    visible: true,
-    title: 'Deep Learning with Keras and TensorFlow',
-    issuer: 'IBM',
+    id: 'c1', visible: true,
+    title: 'Google GEAR — Gemini Enterprise Agent Ready',
+    issuer: 'Google',
     date: '2025',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFTtju89qhIPQ/profile-treasury-document-cover-images_480/B4DZtqu9nNIkBI-/0/1767022256570?e=1782237600&v=beta&t=i2799LJj9OARYPHi8Tt9GmfVisFYUTuG0qmV90_jkBw',
-    link: 'https://www.coursera.org/account/accomplishments/records/AM9BSPTR6E5C',
-    desc: 'Advanced deep learning certification covering neural networks, CNNs, RNNs, and model development using Keras and TensorFlow.'
+    img: '',
+    link: 'https://developers.google.com/learn/pathways/solution-ai-gemini-getting-started-android',
+    desc: 'Selected participant in the Gemini Enterprise Agent Ready program.'
   },
   {
-    id: 'c2',
-    visible: true,
-    title: 'Introduction to Deep Learning & Neural Networks with Keras',
-    issuer: 'IBM',
-    date: '2025',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQEp0HhM9Gz0Yg/profile-treasury-document-cover-images_480/B4DZkuSrL9HsBI-/0/1757418273737?e=1782237600&v=beta&t=OCWMam419c3tcrzJjYwpXYHTDP2N7IGhmR0BA_jgipk',
-    link: 'https://www.coursera.org/account/accomplishments/records/DBMK9G5ETWRI',
-    desc: 'Fundamental training in deep learning concepts, neural networks, and building models with Keras.'
-  },
-  {
-    id: 'c3',
-    visible: true,
-    title: 'Getting Started with Deep Learning',
-    issuer: 'NVIDIA',
-    date: '2025',
-    img: 'https://media.licdn.com/dms/image/v2/D4E2DAQEPAbOmJITmTw/profile-treasury-image-shrink_1920_1920/B4EZ7Rbrg0HsAk-/0/1781630155114?e=1782237600&v=beta&t=7RXU4RoJbYBisP7CNPMvyUdmizQyMIjliWUOcKoEbRM',
-    link: 'https://learn.nvidia.com/certificates?id=ckeQcaitR3-wd0A-YNSo_g',
-    desc: 'Introduction to deep learning fundamentals, neural networks, and GPU-accelerated AI development.'
-  },
-  {
-    id: 'c4',
-    visible: true,
-    title: 'Machine Learning with Python',
-    issuer: 'IBM',
-    date: '2025',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQEvCexuY1yyUQ/profile-treasury-image-shrink_1920_1920/B4DZhatGipGsAc-/0/1753868431444?e=1782237600&v=beta&t=i7AmS7q1nc4KveXz1O4RV9MsfNaqSr5lW4yjpVwLye8',
-    link: 'https://www.coursera.org/account/accomplishments/records/FFCVZQHTV896',
-    desc: 'Comprehensive machine learning certification covering supervised and unsupervised learning using Python.'
-  },
-  {
-    id: 'c5',
-    visible: true,
-    title: 'Cisco Certified Network Associate Routing and Switching (CCNA)',
-    issuer: 'Cisco',
-    date: '2025',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQGRr7Sn5DD8jg/profile-treasury-document-cover-images_1280/profile-treasury-document-cover-images_1280/0/1737898925579?e=1782237600&v=beta&t=glmnYQn4hjaa6eCrYrBML61GOTebcYKHLs-5gg1-UZ0',
-    link: 'https://www.credly.com/badges/6c470060-ca02-4f22-b3a5-7036fd9aabe6/public_url',
-    desc: 'Professional certification in networking fundamentals, routing, switching, and network administration.'
-  },
-  {
-    id: 'c6',
-    visible: true,
-    title: 'Intro to AI',
-    issuer: '365 Data Science',
-    date: '2024',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQF2R2oSE59JEw/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1730889954226?e=1782237600&v=beta&t=wCTxQnNABa8rw7zY0IWLX2wmgHtJZQHnffu34AdG6ZA',
-    link: 'https://learn.365datascience.com/c/f64c940273',
-    desc: 'Introduction to artificial intelligence concepts, machine learning foundations, and modern AI applications.'
-  },
-  {
-    id: 'c7',
-    visible: true,
-    title: 'Data Science and Machine Learning',
-    issuer: 'Microsoft Student Club - EELU',
-    date: '2024',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQGEL0cUcD-KFA/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1730555211573?e=1782237600&v=beta&t=GSZSHuv4jK0dhVdNCtaBWhyavP3ntDLaz7WxHUAD0vA',
+    id: 'c2', visible: true,
+    title: 'Computer Vision Fundamentals',
+    issuer: 'NTI — National Telecommunication Institute',
+    date: '2023',
+    img: '',
     link: '',
-    desc: 'Training program covering data science fundamentals, machine learning algorithms, and practical AI applications.'
-  },
-  {
-    id: 'c8',
-    visible: true,
-    title: 'Python Introduction to Data Science and Machine Learning',
-    issuer: 'Udemy',
-    date: '2024',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFGTs5CLTwg5Q/profile-treasury-image-shrink_1280_1280/profile-treasury-image-shrink_1280_1280/0/1728319616319?e=1782237600&v=beta&t=aPDCO-vaBuqg7DAe9WGUxIfdJrYVqi95Fhs6YtBxAoE',
-    link: 'https://www.udemy.com/certificate/UC-6225cf40-29dd-4877-b641-ee06c5020119/',
-    desc: 'Practical training in Python programming for data science, analytics, and machine learning development.'
-  },
-  {
-    id: 'c9',
-    visible: true,
-    title: 'HCIA-AI V3.5',
-    issuer: 'Huawei',
-    date: '2024',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFpaXLIbXOe6A/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1727377478012?e=1782237600&v=beta&t=VReOdjyuJ9ASrjDraNsd55G07EY0RqogpFwC9SkTSzE',
-    link: '',
-    desc: 'Huawei certification covering artificial intelligence fundamentals, machine learning concepts, and AI applications.'
-  },
-  {
-    id: 'c10',
-    visible: true,
-    title: 'Microsoft Certified: Security, Compliance, and Identity Fundamentals',
-    issuer: 'Microsoft',
-    date: '2024',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQFuBbyinmQcpw/profile-treasury-image-shrink_8192_8192/profile-treasury-image-shrink_8192_8192/0/1725975436738?e=1782237600&v=beta&t=8eTzFie-yoVVGIZjKE_hRiSfTYNCEo2WGbJjrcCclX8',
-    link: 'https://www.credly.com/badges/95e23b91-1281-45b8-8770-3de0ee26c9e7/linked_in?t=sjlkiu',
-    desc: 'Certification covering security, compliance, identity concepts, and Microsoft cloud security solutions.'
-  },
-  {
-    id: 'c11',
-    visible: true,
-    title: 'CCNAv7',
-    issuer: 'Cisco',
-    date: '2024',
-    img: 'https://media.licdn.com/dms/image/v2/D4D2DAQG-myDPR3o9Pw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1716463628725?e=1782237600&v=beta&t=TLRCkGbX_CApVqjXRLsI7SFd-45icjhHfL9SbY_4WJc',
-    link: 'https://www.credly.com/badges/f29fb375-519b-4045-9f38-a90c0335017b',
-    desc: 'Cisco Networking Academy certification covering networking concepts, routing, switching, and network troubleshooting.'
+    desc: 'Intensive training covering CNNs, transfer learning, and image classification.'
   }
 ];
 
 function getCerts() {
-  try { return JSON.parse(localStorage.getItem(CERTS_KEY)) || defaultCerts; }
-  catch { return defaultCerts; }
+  return dataCache.certs || defaultCerts;
 }
-function saveCertsData(d) { localStorage.setItem(CERTS_KEY, JSON.stringify(d)); }
+function saveCertsData(d) { saveKey('certs', d); }
 
 function applyCerts() {
   var grid = document.getElementById('cert-grid');
@@ -3529,13 +3451,11 @@ var SECTION_META = [
 ];
 
 function getSectionOrder() {
-  try {
-    var stored = JSON.parse(localStorage.getItem(ORDER_KEY));
-    if (stored && stored.length) return stored;
-  } catch(e) {}
+  var stored = dataCache.order;
+  if (stored && stored.length) return stored;
   return SECTION_META.map(function(s) { return { id: s.id, visible: true }; });
 }
-function saveSectionOrderData(d) { localStorage.setItem(ORDER_KEY, JSON.stringify(d)); }
+function saveSectionOrderData(d) { saveKey('order', d); }
 
 function applySectionOrder() {
   var order = getSectionOrder();
