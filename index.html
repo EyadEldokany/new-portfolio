@@ -1049,51 +1049,6 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
   display: flex; align-items: center; gap: 0.5rem; width: 100%;
 }
 
-
-/* ── GRADUATION MILESTONE ── */
-#graduation-project{
-  position:relative;overflow:hidden;background:
-    radial-gradient(circle at 12% 20%, rgba(var(--accent-rgb),0.18), transparent 32%),
-    radial-gradient(circle at 90% 15%, rgba(var(--accent2-rgb),0.14), transparent 30%),
-    linear-gradient(180deg,var(--bg2),var(--bg));
-}
-.graduation-wrap{max-width:1200px;margin:0 auto;position:relative;z-index:1}
-.graduation-hero{
-  display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,0.9fr);gap:3rem;align-items:center;
-  padding:2rem;border:1px solid rgba(var(--accent-rgb),0.22);border-radius:30px;
-  background:linear-gradient(135deg,rgba(var(--accent-rgb),0.08),rgba(var(--accent2-rgb),0.06));
-  box-shadow:0 30px 100px rgba(0,0,0,0.22);
-}
-.graduation-kicker{
-  display:inline-flex;align-items:center;gap:.6rem;padding:.45rem 1rem;border-radius:100px;
-  background:rgba(var(--accent2-rgb),0.12);border:1px solid rgba(var(--accent2-rgb),0.28);
-  color:var(--accent2);font-family:'DM Mono',monospace;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem;
-}
-.graduation-title{font-family:'Syne',sans-serif;font-size:clamp(2.2rem,6vw,4.8rem);line-height:.98;font-weight:800;letter-spacing:-.05em;margin-bottom:1.25rem}
-.graduation-title span{color:var(--accent)}
-.graduation-copy{font-size:1.05rem;color:var(--text2);line-height:1.8;max-width:650px;margin-bottom:1.5rem}
-.graduation-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
-.graduation-stat{padding:1rem;border-radius:16px;background:rgba(255,255,255,.045);border:1px solid var(--border)}
-.graduation-stat strong{display:block;font-family:'Syne',sans-serif;font-size:1.6rem;color:var(--text)}
-.graduation-stat span{font-size:.78rem;color:var(--text3);font-family:'DM Mono',monospace}
-.graduation-visual{position:relative;min-height:420px}
-.graduation-img-card{position:absolute;border-radius:24px;overflow:hidden;border:1px solid var(--border2);box-shadow:0 24px 70px var(--shadow);background:var(--bg3)}
-.graduation-img-card img{display:block;width:100%;height:100%;object-fit:cover}
-.graduation-img-card.main{inset:0 0 86px 36px}
-.graduation-img-card.secondary{width:48%;height:42%;left:0;bottom:0}
-.graduation-img-card.tertiary{width:42%;height:36%;right:8%;bottom:16px}
-.graduation-orbit{position:absolute;inset:34px;border:1px dashed rgba(var(--accent-rgb),.35);border-radius:999px;animation:spin 28s linear infinite;pointer-events:none}
-.graduation-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
-.graduation-card,.demo-video-card{background:var(--bg2);border:1px solid var(--border);border-radius:22px;padding:1.5rem;position:relative;overflow:hidden}
-.graduation-card h3,.demo-video-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;margin-bottom:.6rem}
-.graduation-card p{color:var(--text2);font-size:.92rem;line-height:1.7}
-.graduation-video-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
-.demo-video-frame{aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--border2);background:linear-gradient(135deg,var(--bg3),var(--bg4));margin-bottom:1rem}
-.demo-video-frame video{width:100%;height:100%;display:block;object-fit:cover}
-.demo-video-card p{color:var(--text2);font-size:.88rem;line-height:1.65}
-@media(max-width:900px){.graduation-hero,.graduation-grid,.graduation-video-grid{grid-template-columns:1fr}.graduation-visual{min-height:360px;order:-1}}
-@media(max-width:600px){.graduation-hero{padding:1rem}.graduation-stats{grid-template-columns:1fr}.graduation-visual{min-height:300px}.graduation-img-card.main{left:0}.graduation-img-card.secondary,.graduation-img-card.tertiary{display:none}}
-
 </style>
 <!-- Supabase JS Client (for shared, cross-device data storage) -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
@@ -1107,7 +1062,6 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
-    <a href="#graduation-project">Milestone</a>
     <a href="#education">Education</a>
     <a href="#certifications">Certs</a>
     <a href="#experience">Experience</a>
@@ -1124,7 +1078,6 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
   <a href="#about" onclick="closeMobileNav()">About</a>
   <a href="#skills" onclick="closeMobileNav()">Skills</a>
   <a href="#projects" onclick="closeMobileNav()">Projects</a>
-  <a href="#graduation-project" onclick="closeMobileNav()">Milestone</a>
   <a href="#education" onclick="closeMobileNav()">Education</a>
   <a href="#certifications" onclick="closeMobileNav()">Certs</a>
   <a href="#experience" onclick="closeMobileNav()">Experience</a>
@@ -1463,105 +1416,6 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
   </div>
 </section>
 
-<!-- ── GRADUATION PROJECT MILESTONE ── -->
-<section id="graduation-project">
-  <div class="graduation-wrap">
-    <div class="graduation-hero reveal">
-      <div>
-        <div class="graduation-kicker"><span id="grad-kicker">🏆 Graduation Project Milestone</span></div>
-        <h2 class="graduation-title"><span id="grad-title-prefix">HealthBridge is my</span> <span id="grad-title-accent">capstone achievement</span></h2>
-        <p class="graduation-copy" id="grad-copy-1">HealthBridge represents the strongest milestone in my academic journey: a full multimodal medical AI platform that connects patient intake, doctor-facing reasoning, clinical summaries, and secure persistence into one production-minded system.</p>
-        <p class="graduation-copy" id="grad-copy-2">The project proves my ability to move beyond isolated notebooks and build an end-to-end AI product with real architecture decisions, agentic workflows, cloud services, APIs, and polished user flows.</p>
-        <div class="graduation-stats">
-          <div class="graduation-stat"><strong id="grad-stat-1-num">4</strong><span id="grad-stat-1-label">AI service agents</span></div>
-          <div class="graduation-stat"><strong id="grad-stat-2-num">ACE</strong><span id="grad-stat-2-label">agentic context pipeline</span></div>
-          <div class="graduation-stat"><strong id="grad-stat-3-num">Cloud</strong><span id="grad-stat-3-label">AWS-ready architecture</span></div>
-        </div>
-        <a href="https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform" target="_blank" class="btn btn-primary" id="grad-cta">Explore the Capstone →</a>
-      </div>
-      <div class="graduation-visual" aria-label="Creative HealthBridge project visuals">
-        <div class="graduation-orbit"></div>
-        <div class="graduation-img-card main"><img id="grad-image-1" src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Medical AI dashboard concept"></div>
-        <div class="graduation-img-card secondary"><img id="grad-image-2" src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=500&q=80" alt="Healthcare technology workspace"></div>
-        <div class="graduation-img-card tertiary"><img id="grad-image-3" src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=500&q=80" alt="Innovation and engineering visual"></div>
-        <div class="graduation-kicker">🏆 Graduation Project Milestone</div>
-        <h2 class="graduation-title">HealthBridge is my <span>capstone achievement</span></h2>
-        <p class="graduation-copy">HealthBridge represents the strongest milestone in my academic journey: a full multimodal medical AI platform that connects patient intake, doctor-facing reasoning, clinical summaries, and secure persistence into one production-minded system.</p>
-        <p class="graduation-copy">The project proves my ability to move beyond isolated notebooks and build an end-to-end AI product with real architecture decisions, agentic workflows, cloud services, APIs, and polished user flows.</p>
-        <div class="graduation-stats">
-          <div class="graduation-stat"><strong>4</strong><span>AI service agents</span></div>
-          <div class="graduation-stat"><strong>ACE</strong><span>agentic context pipeline</span></div>
-          <div class="graduation-stat"><strong>Cloud</strong><span>AWS-ready architecture</span></div>
-        </div>
-        <a href="https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform" target="_blank" class="btn btn-primary">Explore the Capstone →</a>
-      </div>
-      <div class="graduation-visual" aria-label="Creative HealthBridge project visuals">
-        <div class="graduation-orbit"></div>
-        <div class="graduation-img-card main"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Medical AI dashboard concept"></div>
-        <div class="graduation-img-card secondary"><img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=500&q=80" alt="Healthcare technology workspace"></div>
-        <div class="graduation-img-card tertiary"><img src="https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=500&q=80" alt="Innovation and engineering visual"></div>
-      </div>
-    </div>
-
-    <div class="graduation-grid reveal">
-      <div class="graduation-card">
-        <h3 id="grad-card-1-title">🧠 Intelligent clinical workflow</h3>
-        <p id="grad-card-1-text">IntakeBot collects patient context, DoctorBot supports diagnostic reasoning with retrieval, SummaryBot produces concise medical summaries, and the analysis endpoint ties the flow together.</p>
-      </div>
-      <div class="graduation-card">
-        <h3 id="grad-card-2-title">🚀 Built like a real product</h3>
-        <p id="grad-card-2-text">FastAPI microservices, Docker orchestration, AWS Bedrock, DynamoDB, and RAG patterns make the project feel like a deployable healthcare AI platform rather than a class prototype.</p>
-        <h3>🧠 Intelligent clinical workflow</h3>
-        <p>IntakeBot collects patient context, DoctorBot supports diagnostic reasoning with retrieval, SummaryBot produces concise medical summaries, and the analysis endpoint ties the flow together.</p>
-      </div>
-      <div class="graduation-card">
-        <h3>🚀 Built like a real product</h3>
-        <p>FastAPI microservices, Docker orchestration, AWS Bedrock, DynamoDB, and RAG patterns make the project feel like a deployable healthcare AI platform rather than a class prototype.</p>
-      </div>
-    </div>
-
-    <div class="graduation-video-grid reveal">
-      <div class="demo-video-card">
-        <div class="demo-video-frame">
-          <video id="grad-video-1" controls preload="metadata" poster="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80">
-            <source id="grad-video-1-src" src="assets/healthbridge-demo-workflow.mp4" type="video/mp4">
-            Demo video 1: HealthBridge patient-to-doctor workflow.
-          </video>
-        </div>
-        <h3 id="grad-video-1-title">Demo Video 01 — Patient-to-doctor flow</h3>
-        <p id="grad-video-1-text">A guided walkthrough of the intake journey, context capture, and transition into AI-assisted clinical reasoning.</p>
-      </div>
-      <div class="demo-video-card">
-        <div class="demo-video-frame">
-          <video id="grad-video-2" controls preload="metadata" poster="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80">
-            <source id="grad-video-2-src" src="assets/healthbridge-demo-architecture.mp4" type="video/mp4">
-            Demo video 2: HealthBridge architecture and AI agents.
-          </video>
-        </div>
-        <h3 id="grad-video-2-title">Demo Video 02 — Architecture & agents</h3>
-        <p id="grad-video-2-text">A technical demo highlighting the ACE pipeline, RAG-assisted reasoning, cloud services, persistence, and microservice orchestration.</p>
-          <video controls preload="metadata" poster="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80">
-            <source src="assets/healthbridge-demo-workflow.mp4" type="video/mp4">
-            Demo video 1: HealthBridge patient-to-doctor workflow.
-          </video>
-        </div>
-        <h3>Demo Video 01 — Patient-to-doctor flow</h3>
-        <p>A guided walkthrough of the intake journey, context capture, and transition into AI-assisted clinical reasoning.</p>
-      </div>
-      <div class="demo-video-card">
-        <div class="demo-video-frame">
-          <video controls preload="metadata" poster="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80">
-            <source src="assets/healthbridge-demo-architecture.mp4" type="video/mp4">
-            Demo video 2: HealthBridge architecture and AI agents.
-          </video>
-        </div>
-        <h3>Demo Video 02 — Architecture & agents</h3>
-        <p>A technical demo highlighting the ACE pipeline, RAG-assisted reasoning, cloud services, persistence, and microservice orchestration.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ── EXPERIENCE ── -->
 <!-- ── EDUCATION ── -->
 <section id="education" style="background:var(--bg2)">
@@ -1740,7 +1594,6 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
         <div class="admin-nav-item active" data-panel="hero" onclick="switchPanel(this,'hero')"><span class="icon">🏠</span> Hero</div>
         <div class="admin-nav-item" data-panel="about" onclick="switchPanel(this,'about')"><span class="icon">👤</span> About</div>
         <div class="admin-nav-item" data-panel="projects" onclick="switchPanel(this,'projects')"><span class="icon">🗂️</span> Projects</div>
-        <div class="admin-nav-item" data-panel="graduation" onclick="switchPanel(this,'graduation')"><span class="icon">🏆</span> Graduation Project</div>
         <div class="admin-nav-item" data-panel="skills" onclick="switchPanel(this,'skills')"><span class="icon">🧠</span> Skills</div>
         <div class="admin-nav-item" data-panel="contact" onclick="switchPanel(this,'contact')"><span class="icon">📬</span> Contact</div>
         <div class="admin-nav-item" data-panel="order" onclick="switchPanel(this,'order')"><span class="icon">↕️</span> Section Order</div>
@@ -1849,64 +1702,6 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
           <h2>🗂️ Projects</h2>
           <div class="project-editor-list" id="project-editor-list"></div>
           <button class="add-project-btn" onclick="addProject()">+ Add New Project</button>
-        </div>
-
-        <!-- GRADUATION PROJECT PANEL -->
-        <div class="admin-panel" id="panel-graduation">
-          <h2>🏆 Graduation Project Milestone</h2>
-          <p style="font-size:0.875rem;color:var(--text2);margin-bottom:1.5rem">Edit every visible part of the HealthBridge milestone section, including text, images, CTA, and demo video URLs.</p>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Kicker</label><input type="text" id="cfg-gradKicker"></div>
-            <div class="admin-field"><label>CTA Text</label><input type="text" id="cfg-gradCtaText"></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Title Prefix</label><input type="text" id="cfg-gradTitlePrefix"></div>
-            <div class="admin-field"><label>Title Accent</label><input type="text" id="cfg-gradTitleAccent"></div>
-          </div>
-          <div class="admin-field"><label>Paragraph 1</label><textarea id="cfg-gradCopy1"></textarea></div>
-          <div class="admin-field"><label>Paragraph 2</label><textarea id="cfg-gradCopy2"></textarea></div>
-          <div class="admin-field"><label>CTA URL</label><input type="text" id="cfg-gradCtaUrl"></div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Stat 1 Number</label><input type="text" id="cfg-gradStat1Num"></div>
-            <div class="admin-field"><label>Stat 1 Label</label><input type="text" id="cfg-gradStat1Label"></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Stat 2 Number</label><input type="text" id="cfg-gradStat2Num"></div>
-            <div class="admin-field"><label>Stat 2 Label</label><input type="text" id="cfg-gradStat2Label"></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Stat 3 Number</label><input type="text" id="cfg-gradStat3Num"></div>
-            <div class="admin-field"><label>Stat 3 Label</label><input type="text" id="cfg-gradStat3Label"></div>
-          </div>
-          <div class="admin-field"><label>Main Image URL</label><input type="text" id="cfg-gradImage1"></div>
-          <div class="admin-field"><label>Secondary Image URL</label><input type="text" id="cfg-gradImage2"></div>
-          <div class="admin-field"><label>Third Image URL</label><input type="text" id="cfg-gradImage3"></div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Card 1 Title</label><input type="text" id="cfg-gradCard1Title"></div>
-            <div class="admin-field"><label>Card 2 Title</label><input type="text" id="cfg-gradCard2Title"></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Card 1 Text</label><textarea id="cfg-gradCard1Text"></textarea></div>
-            <div class="admin-field"><label>Card 2 Text</label><textarea id="cfg-gradCard2Text"></textarea></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Demo Video 1 URL</label><input type="text" id="cfg-gradVideo1Src"></div>
-            <div class="admin-field"><label>Demo Video 1 Poster</label><input type="text" id="cfg-gradVideo1Poster"></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Demo Video 1 Title</label><input type="text" id="cfg-gradVideo1Title"></div>
-            <div class="admin-field"><label>Demo Video 1 Text</label><textarea id="cfg-gradVideo1Text"></textarea></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Demo Video 2 URL</label><input type="text" id="cfg-gradVideo2Src"></div>
-            <div class="admin-field"><label>Demo Video 2 Poster</label><input type="text" id="cfg-gradVideo2Poster"></div>
-          </div>
-          <div class="admin-form-row">
-            <div class="admin-field"><label>Demo Video 2 Title</label><input type="text" id="cfg-gradVideo2Title"></div>
-            <div class="admin-field"><label>Demo Video 2 Text</label><textarea id="cfg-gradVideo2Text"></textarea></div>
-          </div>
-          <button class="admin-save-btn" onclick="saveCfg()">Save Graduation Project</button>
-          <span id="save-msg-grad" style="margin-left:1rem;font-size:0.85rem;color:#22c55e;opacity:0;transition:opacity 0.3s">✓ Saved!</span>
         </div>
 
         <!-- SKILLS PANEL -->
@@ -2183,32 +1978,6 @@ const defaults = {
   linkedin: 'https://linkedin.com/in/eyad-eldokany',
   github: 'https://github.com/EyadEldokany',
   purl: 'hhttps://eyad-eldokany-portfolio-kappa.vercel.app/',
-
-  gradKicker: '🏆 Graduation Project Milestone',
-  gradTitlePrefix: 'HealthBridge is my',
-  gradTitleAccent: 'capstone achievement',
-  gradCopy1: 'HealthBridge represents the strongest milestone in my academic journey: a full multimodal medical AI platform that connects patient intake, doctor-facing reasoning, clinical summaries, and secure persistence into one production-minded system.',
-  gradCopy2: 'The project proves my ability to move beyond isolated notebooks and build an end-to-end AI product with real architecture decisions, agentic workflows, cloud services, APIs, and polished user flows.',
-  gradCtaText: 'Explore the Capstone →',
-  gradCtaUrl: 'https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform',
-  gradStat1Num: '4', gradStat1Label: 'AI service agents',
-  gradStat2Num: 'ACE', gradStat2Label: 'agentic context pipeline',
-  gradStat3Num: 'Cloud', gradStat3Label: 'AWS-ready architecture',
-  gradImage1: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80',
-  gradImage2: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?auto=format&fit=crop&w=500&q=80',
-  gradImage3: 'https://images.unsplash.com/photo-1581090464777-f3220bbe1b8b?auto=format&fit=crop&w=500&q=80',
-  gradCard1Title: '🧠 Intelligent clinical workflow',
-  gradCard1Text: 'IntakeBot collects patient context, DoctorBot supports diagnostic reasoning with retrieval, SummaryBot produces concise medical summaries, and the analysis endpoint ties the flow together.',
-  gradCard2Title: '🚀 Built like a real product',
-  gradCard2Text: 'FastAPI microservices, Docker orchestration, AWS Bedrock, DynamoDB, and RAG patterns make the project feel like a deployable healthcare AI platform rather than a class prototype.',
-  gradVideo1Src: 'assets/healthbridge-demo-workflow.mp4',
-  gradVideo1Poster: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=900&q=80',
-  gradVideo1Title: 'Demo Video 01 — Patient-to-doctor flow',
-  gradVideo1Text: 'A guided walkthrough of the intake journey, context capture, and transition into AI-assisted clinical reasoning.',
-  gradVideo2Src: 'assets/healthbridge-demo-architecture.mp4',
-  gradVideo2Poster: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=900&q=80',
-  gradVideo2Title: 'Demo Video 02 — Architecture & agents',
-  gradVideo2Text: 'A technical demo highlighting the ACE pipeline, RAG-assisted reasoning, cloud services, persistence, and microservice orchestration.',
   theme: 'dark'
 };
 
@@ -2287,39 +2056,6 @@ function applyData() {
       else el.textContent = d[key] || '';
     }
   }
-
-  // Graduation milestone
-  const gradText = {
-    'grad-kicker':'gradKicker','grad-title-prefix':'gradTitlePrefix','grad-title-accent':'gradTitleAccent',
-    'grad-copy-1':'gradCopy1','grad-copy-2':'gradCopy2',
-    'grad-stat-1-num':'gradStat1Num','grad-stat-1-label':'gradStat1Label',
-    'grad-stat-2-num':'gradStat2Num','grad-stat-2-label':'gradStat2Label',
-    'grad-stat-3-num':'gradStat3Num','grad-stat-3-label':'gradStat3Label',
-    'grad-card-1-title':'gradCard1Title','grad-card-1-text':'gradCard1Text',
-    'grad-card-2-title':'gradCard2Title','grad-card-2-text':'gradCard2Text',
-    'grad-video-1-title':'gradVideo1Title','grad-video-1-text':'gradVideo1Text',
-    'grad-video-2-title':'gradVideo2Title','grad-video-2-text':'gradVideo2Text'
-  };
-  for(const [id,key] of Object.entries(gradText)) {
-    const el = document.getElementById(id);
-    if(el) el.textContent = d[key] || '';
-  }
-  const gradCta = document.getElementById('grad-cta');
-  if(gradCta) { gradCta.textContent = d.gradCtaText || ''; gradCta.href = d.gradCtaUrl || '#'; }
-  ['1','2','3'].forEach(n => {
-    const img = document.getElementById('grad-image-' + n);
-    if(img && d['gradImage' + n]) img.src = d['gradImage' + n];
-  });
-  ['1','2'].forEach(n => {
-    const video = document.getElementById('grad-video-' + n);
-    const source = document.getElementById('grad-video-' + n + '-src');
-    if(video && d['gradVideo' + n + 'Poster']) video.poster = d['gradVideo' + n + 'Poster'];
-    if(source && d['gradVideo' + n + 'Src'] && source.getAttribute('src') !== d['gradVideo' + n + 'Src']) {
-      source.src = d['gradVideo' + n + 'Src'];
-      if(video) video.load();
-    }
-  });
-
   // Theme
   applyTheme(d.theme || 'dark');
 }
@@ -2512,10 +2248,6 @@ function loadAdminForms() {
     'stat1n','stat1l','stat2n','stat2l','stat3n','stat3l',
     'edu','loc','curr','prog','email','portfolio',
     'aboutp1','aboutp2','aboutp3',
-    'gradKicker','gradTitlePrefix','gradTitleAccent','gradCopy1','gradCopy2','gradCtaText','gradCtaUrl',
-    'gradStat1Num','gradStat1Label','gradStat2Num','gradStat2Label','gradStat3Num','gradStat3Label',
-    'gradImage1','gradImage2','gradImage3','gradCard1Title','gradCard1Text','gradCard2Title','gradCard2Text',
-    'gradVideo1Src','gradVideo1Poster','gradVideo1Title','gradVideo1Text','gradVideo2Src','gradVideo2Poster','gradVideo2Title','gradVideo2Text',
     'contact-email','linkedin','github','purl','theme'];
   fields.forEach(f => {
     const el = document.getElementById('cfg-' + f);
@@ -2540,10 +2272,6 @@ function saveCfg() {
     'stat1n','stat1l','stat2n','stat2l','stat3n','stat3l',
     'edu','loc','curr','prog','email','portfolio',
     'aboutp1','aboutp2','aboutp3',
-    'gradKicker','gradTitlePrefix','gradTitleAccent','gradCopy1','gradCopy2','gradCtaText','gradCtaUrl',
-    'gradStat1Num','gradStat1Label','gradStat2Num','gradStat2Label','gradStat3Num','gradStat3Label',
-    'gradImage1','gradImage2','gradImage3','gradCard1Title','gradCard1Text','gradCard2Title','gradCard2Text',
-    'gradVideo1Src','gradVideo1Poster','gradVideo1Title','gradVideo1Text','gradVideo2Src','gradVideo2Poster','gradVideo2Title','gradVideo2Text',
     'contact-email','linkedin','github','purl','theme'];
   fields.forEach(f => {
     const el = document.getElementById('cfg-' + f);
@@ -2553,7 +2281,7 @@ function saveCfg() {
   applyData();
   applyProjects();
   // Show all save messages momentarily
-  ['save-msg','save-msg2','save-msg4','save-msg-grad'].forEach(id => {
+  ['save-msg','save-msg2','save-msg4'].forEach(id => {
     const m = document.getElementById(id);
     if(m) { m.classList.add('show'); setTimeout(() => m.classList.remove('show'), 2000); }
   });
@@ -3716,7 +3444,6 @@ var SECTION_META = [
   { id: 'about',          icon: '👤', name: 'About',          fixed: false },
   { id: 'skills',         icon: '🧠', name: 'Skills',         fixed: false },
   { id: 'projects',       icon: '🗂️', name: 'Projects',       fixed: false },
-  { id: 'graduation-project', icon: '🏆', name: 'Graduation Milestone', fixed: false },
   { id: 'certifications', icon: '🏅', name: 'Certifications', fixed: false },
   { id: 'education',      icon: '🎓', name: 'Education',      fixed: false },
   { id: 'experience',     icon: '💼', name: 'Experience',     fixed: false },
