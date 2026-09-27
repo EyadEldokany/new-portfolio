@@ -1197,8 +1197,10 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
 }
 
 </style>
-<!-- Supabase JS Client (for shared, cross-device data storage) -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<!-- Firebase JS Client (for shared, cross-device data storage) -->
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script>
 </head>
 <body>
 
@@ -2139,7 +2141,7 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
         <div class="admin-panel" id="panel-settings">
           <h2>⚙️ Settings & Credentials</h2>
           <div class="cred-note">
-            🔒 Your portfolio content is now stored in a shared Supabase database — edits made here are visible to everyone, on any device. Admin sign-in is handled by Supabase Auth. To change your admin <strong>email</strong>, do so from your Supabase Dashboard → Authentication → Users. You can update your <strong>password</strong> below.
+            🔒 Your portfolio content is now stored in a shared Firebase database — edits made here are visible to everyone, on any device. Admin sign-in is handled by Firebase Auth. To change your admin <strong>email</strong>, do so from your Firebase Console → Authentication → Users. You can update your <strong>password</strong> below.
           </div>
           <div class="admin-field">
             <label>New Password</label>
@@ -2168,79 +2170,88 @@ input:checked + .toggle-slider:before{transform:translateX(18px)}
 
 <script>
 // ═══════════════════════════════════════
-// DATA STORE — Supabase-backed shared CMS
+// DATA STORE — Firebase-backed shared CMS
 // ═══════════════════════════════════════
 const STORE_KEY = 'eyad_portfolio_data'; // legacy local key name, kept for the 'config' dataCache slot
 const SESSION_KEY = 'eyad_admin_session';
 
 // ═══════════════════════════════════════
-// SUPABASE — shared database connection
+// FIREBASE — shared database connection
 // ═══════════════════════════════════════
-// Credentials are NOT hardcoded here. They're set as Environment Variables
-// in your Vercel project (Settings → Environment Variables) and served at
-// runtime by the /api/config.js serverless function — see that file for setup.
+// Firebase's client config (apiKey, projectId, etc.) is NOT a secret — it's
+// safe to expose publicly; access is controlled by Firestore/Auth security
+// rules, not by hiding this object. It's still served from /api/config.js
+// (backed by Vercel env vars) so you can change projects without editing
+// this file, but you can hardcode it below instead if you prefer.
 //
 // FALLBACK (optional): if you're testing locally without Vercel/the API route,
-// you can temporarily hardcode values here instead:
-const FALLBACK_SUPABASE_URL = '';
-const FALLBACK_SUPABASE_ANON_KEY = '';
+// you can temporarily hardcode your Firebase config here instead:
+const FALLBACK_FIREBASE_CONFIG = null; // e.g. { apiKey:'...', authDomain:'...', projectId:'...', ... }
 
-let sb = null;
-let sbReady = false;
-let dataCache = {}; // in-memory mirror of the portfolio_data table, keyed by `key`
+let fbApp = null;
+let fbAuth = null;
+let fbDb = null;
+let dataCache = {}; // in-memory mirror of the portfolio_data collection, keyed by document id
 
-async function fetchSupabaseConfig() {
+async function fetchFirebaseConfig() {
   try {
     const res = await fetch('/api/config');
     if (!res.ok) throw new Error('config endpoint returned ' + res.status);
     const cfg = await res.json();
-    if (!cfg.url || !cfg.anonKey) throw new Error('config endpoint missing url/anonKey');
+    if (!cfg.apiKey || !cfg.projectId) throw new Error('config endpoint missing apiKey/projectId');
     return cfg;
   } catch (e) {
     console.warn('Could not load /api/config (' + e.message + '), falling back to local constants.');
-    if (FALLBACK_SUPABASE_URL && FALLBACK_SUPABASE_ANON_KEY) {
-      return { url: FALLBACK_SUPABASE_URL, anonKey: FALLBACK_SUPABASE_ANON_KEY };
-    }
-    return null;
+    return FALLBACK_FIREBASE_CONFIG;
   }
 }
 
-async function initSupabase() {
+async function initFirebase() {
   try {
-    if (typeof window.supabase === 'undefined') {
-      console.error('Supabase client library failed to load.');
+    if (typeof firebase === 'undefined') {
+      console.error('Firebase client library failed to load.');
       return false;
     }
-    const cfg = await fetchSupabaseConfig();
+    const cfg = await fetchFirebaseConfig();
     if (!cfg) {
-      console.error('No Supabase credentials available (set env vars on Vercel or fill the fallback constants).');
+      console.error('No Firebase config available (set env vars on Vercel or fill the fallback constant).');
       return false;
     }
-    sb = window.supabase.createClient(cfg.url, cfg.anonKey);
+    fbApp = firebase.initializeApp(cfg);
+    fbAuth = firebase.auth();
+    fbDb = firebase.firestore();
     await refreshCache();
-    sbReady = true;
     return true;
   } catch (e) {
-    console.error('Supabase init failed:', e);
+    console.error('Firebase init failed:', e);
     return false;
   }
 }
 
 async function refreshCache() {
-  if (!sb) return false;
-  const { data, error } = await sb.from('portfolio_data').select('key, value');
-  if (error) { console.error('Supabase load error:', error.message); return false; }
-  data.forEach(row => { dataCache[row.key] = row.value; });
-  return true;
+  if (!fbDb) return false;
+  try {
+    const snap = await fbDb.collection('portfolio_data').get();
+    snap.forEach(doc => { dataCache[doc.id] = doc.data().value; });
+    return true;
+  } catch (e) {
+    console.error('Firestore load error:', e.message);
+    return false;
+  }
 }
 
-// Fire-and-forget write to Supabase; cache is updated immediately for instant UI feedback
+// Fire-and-forget write to Firestore; cache is updated immediately for instant UI feedback
 async function saveKey(key, value) {
   dataCache[key] = value;
-  if (!sb) return;
-  const { error } = await sb.from('portfolio_data')
-    .upsert({ key, value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
-  if (error) console.error('Supabase save error [' + key + ']:', error.message);
+  if (!fbDb) return;
+  try {
+    await fbDb.collection('portfolio_data').doc(key).set({
+      value,
+      updated_at: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+  } catch (e) {
+    console.error('Firestore save error [' + key + ']:', e.message);
+  }
 }
 
 const defaults = {
@@ -2496,9 +2507,11 @@ function checkRoute() {
 async function showAdminOverlay() {
   document.getElementById('admin-overlay').classList.add('active');
   document.body.style.overflow = 'hidden';
-  if (sb) {
-    const { data: { session } } = await sb.auth.getSession();
-    if (session) { sessionStorage.setItem(SESSION_KEY, 'true'); showDash(); return; }
+  if (fbAuth) {
+    const user = await new Promise(resolve => {
+      const unsub = fbAuth.onAuthStateChanged(u => { unsub(); resolve(u); });
+    });
+    if (user) { sessionStorage.setItem(SESSION_KEY, 'true'); showDash(); return; }
   }
   sessionStorage.removeItem(SESSION_KEY);
   showLoginForm();
@@ -2523,22 +2536,23 @@ async function adminLogin() {
   const pass = document.getElementById('admin-pass-input').value;
   const err = document.getElementById('admin-err');
   const btn = document.querySelector('.admin-login-btn');
-  if (!sb) { err.textContent = '⚠ Database not connected yet. Please try again.'; err.style.display = 'block'; return; }
+  if (!fbAuth) { err.textContent = '⚠ Database not connected yet. Please try again.'; err.style.display = 'block'; return; }
   if (btn) { btn.textContent = 'Signing in…'; btn.disabled = true; }
-  const { data, error } = await sb.auth.signInWithPassword({ email, password: pass });
-  if (btn) { btn.textContent = 'Sign In →'; btn.disabled = false; }
-  if (error) {
-    err.textContent = '⚠ Invalid credentials. Please try again.';
-    err.style.display = 'block';
-    document.getElementById('admin-pass-input').value = '';
-  } else {
+  try {
+    await fbAuth.signInWithEmailAndPassword(email, pass);
+    if (btn) { btn.textContent = 'Sign In →'; btn.disabled = false; }
     sessionStorage.setItem(SESSION_KEY, 'true');
     err.style.display = 'none';
     showDash();
+  } catch (e) {
+    if (btn) { btn.textContent = 'Sign In →'; btn.disabled = false; }
+    err.textContent = '⚠ Invalid credentials. Please try again.';
+    err.style.display = 'block';
+    document.getElementById('admin-pass-input').value = '';
   }
 }
 async function adminLogout() {
-  if (sb) await sb.auth.signOut();
+  if (fbAuth) await fbAuth.signOut();
   sessionStorage.removeItem(SESSION_KEY);
   showLoginForm();
 }
@@ -2756,13 +2770,14 @@ async function saveCredentials() {
   const newPass = document.getElementById('cfg-new-pass').value;
   const confPass = document.getElementById('cfg-conf-pass').value;
   const msg = document.getElementById('cred-msg');
-  if (!sb) { msg.textContent = '⚠ Database not connected'; msg.style.color = '#ef4444'; return; }
+  if (!fbAuth || !fbAuth.currentUser) { msg.textContent = '⚠ Database not connected'; msg.style.color = '#ef4444'; return; }
   if (!newPass) { msg.textContent = '⚠ Enter a new password'; msg.style.color = '#ef4444'; return; }
   if (newPass.length < 6) { msg.textContent = '⚠ Password must be 6+ characters'; msg.style.color = '#ef4444'; return; }
   if (newPass !== confPass) { msg.textContent = '⚠ Passwords do not match'; msg.style.color = '#ef4444'; return; }
-  const { error } = await sb.auth.updateUser({ password: newPass });
-  if (error) {
-    msg.textContent = '⚠ ' + error.message;
+  try {
+    await fbAuth.currentUser.updatePassword(newPass);
+  } catch (e) {
+    msg.textContent = '⚠ ' + e.message;
     msg.style.color = '#ef4444';
     return;
   }
@@ -2787,7 +2802,7 @@ window.addEventListener('scroll', () => {
 // ═══════════════════════════════════════
 document.addEventListener('DOMContentLoaded', async () => {
   document.body.classList.add('loading-data');
-  await initSupabase(); // fetch shared content from the database before first paint
+  await initFirebase(); // fetch shared content from the database before first paint
   document.body.classList.remove('loading-data');
   applyData();
   applyProjects();
@@ -2808,16 +2823,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   applySectionOrder();
 
   // Keep the public page in sync with edits made on other devices/tabs in real time
-  if (sb) {
-    sb.channel('portfolio_data_changes')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'portfolio_data' }, () => {
-        refreshCache().then(() => {
-          applyData(); applyProjects(); applySkills();
-          applyInfoFields(); applyEduTimeline(); applyExpTimeline();
-          applyCerts(); applyHB(); renderCustomSectionsOnPage(); applySectionOrder();
-        });
-      })
-      .subscribe();
+  if (fbDb) {
+    let firstSnapshot = true;
+    fbDb.collection('portfolio_data').onSnapshot(snap => {
+      if (firstSnapshot) { firstSnapshot = false; return; } // skip the initial read, refreshCache() already handled it
+      snap.forEach(doc => { dataCache[doc.id] = doc.data().value; });
+      applyData(); applyProjects(); applySkills();
+      applyInfoFields(); applyEduTimeline(); applyExpTimeline();
+      applyCerts(); applyHB(); renderCustomSectionsOnPage(); applySectionOrder();
+    }, err => console.error('Firestore realtime error:', err.message));
   }
 });
 
