@@ -7,5 +7,3 @@ references/
 *.log
 __pycache__/
 .DS_Store
-CONTENT-EDITING-GUIDE.ar.html
-CONTENT-EDITING-GUIDE.ar.md
