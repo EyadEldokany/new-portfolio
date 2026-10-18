@@ -1,23 +1,25 @@
 {
   "name": "eyad-eldokany-portfolio",
-  "version": "1.0.0",
-  "description": "Eyad Eldokany's Portfolio - AI Engineer",
-  "main": "index.html",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A neural-interface portfolio for Eyad Eldokany: AI agents, computer vision, and production systems.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test:ui": "node scripts/test-ui.mjs",
+    "test:content": "node scripts/test-content.mjs"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/EyadEldokany/new-portfolio.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/EyadEldokany/new-portfolio/issues"
-  },
-  "homepage": "https://github.com/EyadEldokany/new-portfolio#readme",
   "dependencies": {
-    "@vercel/analytics": "^2.0.1"
+    "lucide-react": "0.468.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.3.4",
+    "axe-core": "^4.10.3",
+    "playwright": "^1.56.1",
+    "vite": "^6.4.4"
   }
 }

@@ -1,0 +1,788 @@
+{
+  "certs": [
+    {
+      "link": "https://www.coursera.org/account/accomplishments/records/AM9BSPTR6E5C",
+      "date": "2025",
+      "issuer": "IBM",
+      "id": "c1",
+      "img": "https://drive.google.com/thumbnail?id=1a_mboQiBMQv5tetrdLaMBcb1uKnvd1YH&sz=w1000",
+      "desc": "Advanced deep learning certification covering neural networks, CNNs, RNNs, and model development using Keras and TensorFlow.",
+      "title": "Deep Learning with Keras and TensorFlow",
+      "visible": true,
+      "localImage": "/images/certificate-0.jpg"
+    },
+    {
+      "desc": "Fundamental training in deep learning concepts, neural networks, and building models with Keras.",
+      "id": "c2",
+      "img": "https://drive.google.com/thumbnail?id=1a_mboQiBMQv5tetrdLaMBcb1uKnvd1YH&sz=w1000",
+      "issuer": "IBM",
+      "link": "https://www.coursera.org/account/accomplishments/records/DBMK9G5ETWRI",
+      "date": "2025",
+      "title": "Introduction to Deep Learning & Neural Networks with Keras",
+      "visible": true,
+      "localImage": "/images/certificate-1.jpg"
+    },
+    {
+      "issuer": "NVIDIA",
+      "desc": "Introduction to deep learning fundamentals, neural networks, and GPU-accelerated AI development.",
+      "title": "Getting Started with Deep Learning",
+      "img": "https://drive.google.com/thumbnail?id=1j3bh1019yeBP9DrHEOHJxU-FoaxoAhm-&sz=w1000",
+      "id": "c3",
+      "visible": true,
+      "date": "2025",
+      "link": "https://learn.nvidia.com/certificates?id=ckeQcaitR3-wd0A-YNSo_g",
+      "localImage": "/images/certificate-2.jpg"
+    },
+    {
+      "issuer": "IBM",
+      "link": "https://www.coursera.org/account/accomplishments/records/FFCVZQHTV896",
+      "date": "2025",
+      "id": "c4",
+      "title": "Machine Learning with Python",
+      "img": "https://drive.google.com/thumbnail?id=1kcnigclABtCtEVI-uIoN3OO5Nt5WqT_i&sz=w1000",
+      "desc": "Comprehensive machine learning certification covering supervised and unsupervised learning using Python.",
+      "visible": true,
+      "localImage": "/images/certificate-3.jpg"
+    },
+    {
+      "id": "c5",
+      "desc": "Professional certification in networking fundamentals, routing, switching, and network administration.",
+      "img": "https://drive.google.com/thumbnail?id=1_lh15ky0wlUKGY1gCwH_aaVcSqW2nu7S&sz=w1000",
+      "issuer": "Cisco",
+      "link": "https://www.credly.com/badges/6c470060-ca02-4f22-b3a5-7036fd9aabe6/public_url",
+      "date": "2025",
+      "visible": true,
+      "title": "Cisco Certified Network Associate Routing and Switching (CCNA)",
+      "localImage": "/images/certificate-4.jpg"
+    },
+    {
+      "img": "https://drive.google.com/thumbnail?id=1UH5Pf5_syv82CagOH5ngVW61hIAjuUgz&sz=w1000",
+      "date": "2024",
+      "link": "https://learn.365datascience.com/c/f64c940273",
+      "title": "Intro to AI",
+      "issuer": "365 Data Science",
+      "desc": "Introduction to artificial intelligence concepts, machine learning foundations, and modern AI applications.",
+      "id": "c6",
+      "visible": true,
+      "localImage": "/images/certificate-5.jpg"
+    },
+    {
+      "link": "",
+      "date": "2024",
+      "id": "c7",
+      "title": "Data Science and Machine Learning",
+      "visible": true,
+      "issuer": "Microsoft Student Club - EELU",
+      "desc": "Training program covering data science fundamentals, machine learning algorithms, and practical AI applications.",
+      "img": "https://drive.google.com/thumbnail?id=1VaKvA6MHf8UOA-2Ad8QXlmL6ZlPoAUzH&sz=w1000",
+      "localImage": "/images/certificate-6.jpg"
+    },
+    {
+      "issuer": "Udemy",
+      "title": "Python Introduction to Data Science and Machine Learning",
+      "link": "https://www.udemy.com/certificate/UC-6225cf40-29dd-4877-b641-ee06c5020119/",
+      "date": "2024",
+      "img": "https://drive.google.com/thumbnail?id=1gf0DrrzAaAwi0HJbDGjpSXIzRawRssvG&sz=w1000",
+      "id": "c8",
+      "desc": "Practical training in Python programming for data science, analytics, and machine learning development.",
+      "visible": true,
+      "localImage": "/images/certificate-7.jpg"
+    },
+    {
+      "issuer": "Huawei",
+      "visible": true,
+      "title": "HCIA-AI V3.5",
+      "date": "2024",
+      "link": "",
+      "img": "https://drive.google.com/thumbnail?id=1GdwlUhumi6HEerKJ5NDfSiOLgW8EDwRc&sz=w1000",
+      "desc": "Huawei certification covering artificial intelligence fundamentals, machine learning concepts, and AI applications.",
+      "id": "c9",
+      "localImage": "/images/certificate-8.jpg"
+    },
+    {
+      "desc": "Certification covering security, compliance, identity concepts, and Microsoft cloud security solutions.",
+      "issuer": "Microsoft",
+      "img": "https://drive.google.com/thumbnail?id=1ekZrmScJnnjWvwJUaB5bCpad5TcZ0dX8&sz=w1000",
+      "id": "c10",
+      "title": "Microsoft Certified: Security, Compliance, and Identity Fundamentals",
+      "date": "2024",
+      "link": "https://www.credly.com/badges/95e23b91-1281-45b8-8770-3de0ee26c9e7/linked_in?t=sjlkiu",
+      "visible": true,
+      "localImage": "/images/certificate-9.jpg"
+    },
+    {
+      "visible": true,
+      "img": "https://drive.google.com/thumbnail?id=1jki4hBB_WbYrQRIYc8GUQZgx5uy8nHTF&sz=w1000",
+      "title": " Develop Generative AI Applications: Get Started",
+      "link": "https://www.coursera.org/account/accomplishments/records/VVX7U7QVI9YG",
+      "date": "2026",
+      "desc": "",
+      "issuer": "IBM",
+      "id": "c1790540344102",
+      "localImage": "/images/certificate-10.jpg"
+    }
+  ],
+  "config": {
+    "lastname": "Eldokany",
+    "loc": "Egypt",
+    "email": "eyad.eldokany@gmail.com",
+    "herodesc": "AI engineer crafting impactful solutions with LLMs, computer vision, and deep learning — turning complex data into deployed, real-world products.",
+    "khamsat": "https://khamsat.com/user/eyad_eldokany",
+    "edu": "B.Sc. Computer Science — EELU, Class of 2026",
+    "aboutp3": "",
+    "roles": "AI Engineer,ML Researcher,Computer Vision Engineer,LLM Systems Builder",
+    "prog": "Google GEAR (Gemini Enterprise Agent Ready)",
+    "freelancer": "https://www.freelancer.com/u/EyadEldokany",
+    "portfolio": "eyadeldokany.vercel.app",
+    "aboutp2": "My work spans medical AI, coding agents, face recognition, object detection, and forecasting. I like taking models out of notebooks — and building the systems around them.",
+    "github": "https://github.com/EyadEldokany",
+    "upwork": "https://www.upwork.com/freelancers/~0173578dec85f51c0a",
+    "stat1n": "40+",
+    "stat1l": "PUBLIC REPOSITORIES",
+    "stat3n": "3+",
+    "aboutp1": "I’m an AI Engineer and Computer Science graduate from the Egyptian E-Learning University. I bridge the gap between cutting-edge AI research and real-world applications.",
+    "stat2n": "5+",
+    "linkedin": "https://linkedin.com/in/eyad-eldokany",
+    "firstname": "Eyad",
+    "curr": "Building HealthBridge — Multimodal Medical AI Platform",
+    "stat3l": "YEARS LEARNING & BUILDING",
+    "theme": "dark",
+    "badge": "Available for AI/ML opportunities",
+    "purl": "https://eyad-eldokany-portfolio-kappa.vercel.app/",
+    "contact-email": "eyad.eldokany@gmail.com",
+    "mostaqel": "https://mostaql.com/u/Eyad_Eldokany",
+    "stat2l": "AI SYSTEMS & PROJECTS",
+    "portrait": "/images/eyad-portrait.webp",
+    "primaryRole": "AI Engineer",
+    "heroRole": "AI ENGINEER & SYSTEMS BUILDER",
+    "heroTitle": "Engineering",
+    "heroAccent": "intelligence.",
+    "heroDescription": {
+      "lead": "I turn complex data into intelligent systems.",
+      "beforeFocus": "Building across",
+      "focus": "LLMs, computer vision, and production AI",
+      "afterFocus": "— from the first experiment to the deployed product."
+    },
+    "profileEducation": "B.Sc. Computer Science & AI",
+    "graduationYear": "2026",
+    "countryCode": "EG",
+    "profileStatus": "OPEN TO WHAT’S NEXT",
+    "heroEducation": {
+      "degree": "CS & AI",
+      "school": "EELU",
+      "classOf": "2026"
+    }
+  },
+  "edu": [
+    {
+      "id": "e1",
+      "org": "The Egyptian E-Learning University (EELU), Egypt",
+      "date": "September 2022- June 2026",
+      "desc": "Specializing in AI/ML, computer vision, cloud computing (AWS), and software engineering. Graduation project: HealthBridge — Multimodal Medical AI Platform.",
+      "icon": "🎓",
+      "title": "B.Sc. Computer Science and Artificial Intelligence",
+      "visible": true
+    }
+  ],
+  "exp": [
+    {
+      "id": "x1",
+      "org": "Self-Directed Projects & Open Source",
+      "date": "2025 — Present",
+      "desc": "Building and deploying AI systems across medical AI, computer vision, and NLP. Maintaining 40+ GitHub repositories spanning deep learning, MLOps, and production deployment\n",
+      "icon": "🏗️",
+      "title": "AI Engineer (Freelancer - Independent)",
+      "visible": true,
+      "current": true
+    },
+    {
+      "id": "exp1782072299242",
+      "org": "National Telecommunication Institute (NTI) ",
+      "date": "Aug 2025 – Sep 2025",
+      "desc": "Developed real-time object detection and image classification algorithms. Built and trained custom YOLO-based models; handled data preprocessing, annotation, and augmentation. Implemented OpenCV utilities for edge detection, morphological operations, and feature extraction.\n",
+      "icon": "👁️",
+      "title": "Computer Vision Trainee ",
+      "visible": true,
+      "current": false
+    },
+    {
+      "id": "exp1782072339174",
+      "org": "DEPI (Digital Egyptian Pioneers Initiative)",
+      "date": "Oct 2024 – May 2025",
+      "desc": "Developed predictive ML models to enhance data-driven decision-making. Performed EDA and feature engineering using Python, Pandas, and Scikit-Learn. Earned certified Data Scientist qualification through the national DEPI program.\n",
+      "icon": "🔬",
+      "title": "AI & Data Science Trainee ",
+      "visible": true,
+      "current": false
+    },
+    {
+      "id": "exp1782072479405",
+      "org": "National Telecommunication Institute (NTI)",
+      "date": "Aug 2024 – Sep 2024",
+      "desc": "Built ML models for trend prediction and anomaly detection on structured datasets. Gained hands-on experience with model training, evaluation, and hyperparameter tuning using Scikit-Learn and Keras.\n",
+      "icon": "🤖",
+      "title": "AI & ML Trainee ",
+      "visible": true,
+      "current": false
+    }
+  ],
+  "fields": [
+    {
+      "id": "f1",
+      "icon": "🎓",
+      "link": "",
+      "label": "Education",
+      "value": "B.Sc. Computer Science — EELU, Class of 2026",
+      "isLink": false,
+      "visible": true
+    },
+    {
+      "id": "f2",
+      "icon": "📍",
+      "link": "",
+      "label": "Location",
+      "value": "Egypt",
+      "isLink": false,
+      "visible": true
+    },
+    {
+      "id": "f3",
+      "icon": "📧",
+      "link": "mailto:eyad.eldokany@gmail.com",
+      "label": "Email",
+      "value": "eyad.eldokany@gmail.com",
+      "isLink": true,
+      "visible": true
+    },
+    {
+      "id": "f4",
+      "icon": "🌐",
+      "link": "https://eyad-eldokany-portfolio-kappa.vercel.app/",
+      "label": "Portfolio",
+      "value": "eyad-eldokany-portfolio-kappa.vercel.app/",
+      "isLink": true,
+      "visible": true
+    }
+  ],
+  "hb": {
+    "titleHighlight": "HealthBridge",
+    "github": "",
+    "lede": "A production-grade, multimodal medical AI platform I designed and built end-to-end for my graduation project: microservices on FastAPI, AWS Bedrock-powered reasoning, a 27-source medical RAG system, dual-model vision, and a custom ACE (Agentic Context Engineering) pipeline — with full observability via Prometheus and Grafana.",
+    "flow": [
+      {
+        "icon": "🩺",
+        "text": "IntakeBot — patient symptom capture (Bedrock)"
+      },
+      {
+        "icon": "📚",
+        "text": "27-Source Medical RAG (pgvector) (Deep Research Mode)"
+      },
+      {
+        "icon": "🧠",
+        "text": "ACE Pipeline (Generator → Reflector → Curator)"
+      },
+      {
+        "icon": "📝",
+        "text": "SummaryBot — structured report"
+      },
+      {
+        "icon": "👨‍⚕",
+        "text": "DoctorBot — clinical reasoning (Bedrock)"
+      }
+    ],
+    "titlePre": "Meet ",
+    "videos": [
+      {
+        "src": "https://youtu.be/AkmpXr-Mj1I",
+        "desc": "A patient chats naturally with HealthBridge's intake assistant, answering guided questions about their profile and symptoms. The system asks smart follow-ups in real time and compiles everything into a structured health summary — no forms, just conversation.",
+        "title": "Patient Journey: From Symptoms to Summary",
+        "poster": ""
+      },
+      {
+        "src": "https://youtu.be/S7oc6yYVuv4",
+        "desc": "A look at HealthBridge from the clinician's side — browsing active patient cases, opening a case to review the AI-generated analysis, and working through the findings before signing off, with the supporting context surfaced right alongside the recommendation.",
+        "title": "Doctor Journey: AI-Assisted Case Review",
+        "poster": ""
+      }
+    ],
+    "eyebrow": "Graduation Project · Flagship Build",
+    "stats": [
+      {
+        "num": "27",
+        "label": "RAG Sources",
+        "shortLabel": "RAG sources"
+      },
+      {
+        "num": "3",
+        "label": "Agentic Bots",
+        "shortLabel": "Agentic bots"
+      },
+      {
+        "num": "2",
+        "label": "Vision Models",
+        "shortLabel": "Vision models"
+      },
+      {
+        "num": "100%",
+        "label": "Dockerized"
+      }
+    ],
+    "titlePost": "",
+    "gallery": [
+      {
+        "img": "https://drive.google.com/thumbnail?id=1PICVlHm6tEEVdOLV_fr85iEQ0_45MhF8&sz=w1000",
+        "tag": "Main Page",
+        "icon": "🖥️",
+        "label": "Main Page",
+        "localImage": "/images/healthbridge-0.jpg"
+      },
+      {
+        "img": "https://drive.google.com/thumbnail?id=1FlPppkftz0Q4IrY0EYzuGJZbjz7YDzA5&sz=w1000",
+        "tag": "Intake",
+        "icon": "💬",
+        "label": "Intake Assistant",
+        "localImage": "/images/healthbridge-1.jpg"
+      },
+      {
+        "img": "https://drive.google.com/thumbnail?id=10DI6OiTXFL3ctYCiez8gFJFF-fyO_82V&sz=w1000",
+        "tag": "Doctor",
+        "icon": "🧑‍⚕",
+        "label": "Doctor Assistant",
+        "localImage": "/images/healthbridge-2.jpg"
+      },
+      {
+        "img": "https://drive.google.com/thumbnail?id=1UUOILc3SPDqeQLIy4aKrWbsr904GdOPW&sz=w1000",
+        "tag": "Doctor Dashboard",
+        "icon": "📊",
+        "label": "Doctor Dashboard",
+        "localImage": "/images/healthbridge-3.jpg"
+      }
+    ],
+    "featuredSubtitleLines": [
+      "An intelligent clinical workflow.",
+      "Engineered end to end."
+    ],
+    "featuredDescription": "A multimodal medical AI platform bringing together specialized agents, evidence-aware reasoning, and patient context.",
+    "productImageIndex": 3
+  },
+  "projects": [
+    {
+      "id": "healthbridge",
+      "visible": true,
+      "title": "HealthBridge",
+      "link": "https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform",
+      "category": "Agentic AI",
+      "type": "Multimodal medical AI",
+      "art": "healthbridge",
+      "summary": "Patient conversations. Evidence-aware reasoning. One connected clinical workflow.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "AWS Bedrock",
+        "pgvector",
+        "DynamoDB",
+        "Docker",
+        "ACE Framework"
+      ],
+      "tags": ["AWS Bedrock", "FastAPI", "Medical RAG"],
+      "problem": "Bring patient intake, clinical context, and AI-assisted reasoning into one connected system.",
+      "approach": [
+        "Three specialized bots for intake, clinical reasoning, and structured summaries.",
+        "Retrieval from 27 medical sources with pgvector and a custom agentic context pipeline.",
+        "Containerized microservices with Prometheus and Grafana observability."
+      ]
+    },
+    {
+      "id": "codenova",
+      "visible": true,
+      "title": "CodeNova",
+      "desc": "Built and deployed a full-stack AI coding assistant with a real-time streaming chat interface, agentic tool-calling loop, and per-conversation isolated project workspaces. Features 15 agent tools (file I/O, Python execution, testing, linting, doc search), Supabase Auth/PostgreSQL backend, SSE streaming, and a responsive single-file frontend with markdown rendering. Deployed via Docker on Fly.io with GitHub Actions CI/CD.",
+      "link": "https://github.com/EyadEldokany/Coding-Bot",
+      "demo": "https://coding-bot.fly.dev/",
+      "category": "Agentic AI",
+      "type": "AI coding assistant",
+      "art": "code",
+      "summary": "An agent that doesn’t just answer. It reads, writes, executes, tests, and debugs code.",
+      "tags": ["15 agent tools", "FastAPI", "Supabase"],
+      "problem": "Move from a conversational coding assistant to an agent that can work inside isolated project workspaces.",
+      "approach": [
+        "An agentic tool-calling loop with 15 tools for files, execution, testing, linting, and documentation.",
+        "Real-time SSE streaming with per-conversation workspace isolation.",
+        "Supabase authentication and PostgreSQL, container deployment on Fly.io, and GitHub Actions CI/CD."
+      ],
+      "stack": ["Python", "FastAPI", "Supabase", "Docker", "Fly.io"]
+    },
+    {
+      "id": "attendance",
+      "visible": true,
+      "title": "Edge AI Attendance",
+      "desc": "Real-time Pipeline: Engineered a 24/7 RTSP video system using YOLOv8 & ByteTrack for multi-person tracking\nand line-crossing detection with auto-reconnection.\nFace Recognition & Vector Search: Integrated InsightFace with FAISS L2 indexing for real-time identification,\nconfidence scoring, and fallback verification.\nActive Enrollment & Thread-Safe Logging: Built an automated active learning pipeline for unknown faces and a\nthread-safe SQLite (WAL) engine with background Excel sync.",
+      "link": "https://github.com/EyadEldokany/attendance-system",
+      "category": "Computer Vision",
+      "type": "Real-time vision pipeline",
+      "art": "edge",
+      "summary": "Multi-person tracking, face recognition, and vector search in a continuous video pipeline.",
+      "tags": ["YOLOv8", "InsightFace", "FAISS"],
+      "problem": "Connect continuous camera input to reliable tracking, identity matching, and attendance logging.",
+      "approach": [
+        "RTSP input, YOLOv8 detection, ByteTrack tracking, line-crossing logic, and auto-reconnection.",
+        "InsightFace embeddings with FAISS L2 indexing and fallback verification.",
+        "Unknown-face enrollment and a thread-safe SQLite WAL engine with background Excel synchronization."
+      ],
+      "stack": [
+        "Python",
+        "YOLOv8",
+        "ByteTrack",
+        "InsightFace",
+        "FAISS",
+        "SQLite",
+        "OpenCV"
+      ]
+    },
+    {
+      "id": "traffic",
+      "visible": true,
+      "title": "Traffic Sign Detection",
+      "desc": "Developed an intelligent real-time traffic sign detection system using YOLOv11 optimized for embedded and edge deployment. Implemented training, inference, and evaluation pipelines for robust object detection.",
+      "link": "https://github.com/EyadEldokany/Traffic_Sign_Detection",
+      "category": "Computer Vision",
+      "type": "Edge-ready object detection",
+      "art": "traffic",
+      "summary": "A YOLOv11 detection system designed to read the road in real time.",
+      "tags": ["YOLOv11", "PyTorch", "OpenCV"],
+      "problem": "Detect and recognize traffic signs in real time with an edge-deployment focus.",
+      "approach": [
+        "A YOLOv11-based detection pipeline.",
+        "Integrated training, inference, and model evaluation.",
+        "Optimization for embedded and edge deployment."
+      ],
+      "stack": ["Python", "YOLOv11", "PyTorch", "OpenCV", "FastAPI"]
+    },
+    {
+      "id": "face",
+      "visible": true,
+      "title": "Face Recognition Sign-In",
+      "desc": "Developed a secure facial recognition authentication system with real-time database integration, enterprise scalability, and automated user verification. Improved authentication efficiency by 40% and deployed the platform using Flask and cloud infrastructure.",
+      "link": "https://github.com/EyadEldokany/face-recognition-app",
+      "category": "Computer Vision",
+      "type": "Intelligent authentication",
+      "art": "face",
+      "summary": "Real-time facial verification with database integration and a deployed Flask backend.",
+      "tags": ["Flask", "OpenCV", "Qdrant"],
+      "problem": "Build an authentication experience around automated face recognition.",
+      "approach": [
+        "Real-time face detection and automated user verification.",
+        "Database integration for user management.",
+        "A Flask application deployed on cloud infrastructure."
+      ],
+      "stack": ["Python", "Flask", "OpenCV", "Railway", "Qdrant"]
+    },
+    {
+      "id": "mri",
+      "visible": true,
+      "title": "Alzheimer MRI Detection",
+      "desc": "Trained a ResNet-18 classifier on a 4-class Alzheimer's MRI dataset using transfer learning, achieving 98% validation accuracy. Built and deployed a Flask web application for real-time image-based predictions.",
+      "link": "https://github.com/EyadEldokany",
+      "category": "Computer Vision",
+      "type": "Medical image classification",
+      "art": "mri",
+      "summary": "Transfer learning with ResNet-18 for a four-class Alzheimer’s MRI classifier.",
+      "tags": ["ResNet-18", "PyTorch", "Flask"],
+      "problem": "Classify Alzheimer’s MRI images using transfer learning.",
+      "approach": [
+        "A four-class MRI dataset and a ResNet-18 classifier.",
+        "Model training and validation with PyTorch and Torchvision.",
+        "A deployed Flask web application for image-based predictions."
+      ],
+      "stack": ["PyTorch", "ResNet-18", "Flask", "Torchvision"]
+    },
+    {
+      "desc": "Built a machine learning pipeline to predict hazardous Near-Earth Objects using NASA's 1910–2024 dataset. Performed data cleaning, EDA, feature engineering, class imbalance handling, and trained multiple models to improve prediction accuracy by 25%.",
+      "link": "https://github.com/EyadEldokany/Predicting_Hazardous_NEOs_-Nearest_Earth_Objects-",
+      "id": "neo",
+      "title": "Hazardous NEO Prediction",
+      "visible": true,
+      "category": "Machine Learning",
+      "type": "NASA dataset · predictive ML",
+      "art": "neo",
+      "summary": "A full ML pipeline exploring potentially hazardous near-Earth objects.",
+      "tags": ["scikit-learn", "Pandas", "NASA data"],
+      "problem": "Identify potentially hazardous objects in NASA’s 1910–2024 near-Earth object dataset.",
+      "approach": [
+        "Data cleaning, exploratory analysis, and feature engineering.",
+        "Class imbalance handling and comparison of multiple models.",
+        "A repeatable prediction and model-evaluation pipeline."
+      ],
+      "stack": ["Python", "Machine Learning", "Pandas", "Scikit-Learn"]
+    },
+    {
+      "visible": true,
+      "desc": "Developed an industrial clamp detection solution using YOLOv11m with a custom Roboflow-annotated dataset. Achieved 75.48% mAP@0.5 and optimized inference for NVIDIA GPUs with ONNX and TensorRT deployment support.",
+      "title": "Industrial Clamp Detection",
+      "link": "https://github.com/EyadEldokany/YOLOv11m-Industrial-Clamp-Detection-",
+      "id": "clamp",
+      "category": "Computer Vision",
+      "type": "Industrial visual inspection",
+      "art": "clamp",
+      "summary": "Custom detection models with GPU-optimized inference and deployment support.",
+      "tags": ["YOLOv11m", "ONNX", "TensorRT"],
+      "problem": "Detect industrial clamps using a custom annotated dataset.",
+      "approach": [
+        "A Roboflow-annotated dataset and custom YOLOv11m training.",
+        "Model evaluation using mAP@0.5.",
+        "NVIDIA GPU inference with ONNX and TensorRT deployment support."
+      ],
+      "stack": ["Python", "YOLOv11m", "Roboflow", "PyTorch", "ONNX", "TensorRT"]
+    },
+    {
+      "visible": true,
+      "desc": "Developed a transfer learning framework for cross-domain traffic speed forecasting between PEMS-BAY and METR-LA datasets. Implemented stacked LSTM models with PCA-based feature alignment, BatchNormalization, and Dropout to reduce domain shift and improve predictive accuracy.",
+      "title": "Cross-City Traffic Forecasting",
+      "link": "https://github.com/EyadEldokany/Transfer-Learning-with-Data-Level-Domain-Adaptation",
+      "id": "speed",
+      "category": "Machine Learning",
+      "type": "Time series · domain adaptation",
+      "art": "speed",
+      "summary": "Transferring traffic-speed patterns between PEMS-BAY and METR-LA.",
+      "tags": ["LSTM", "TensorFlow", "Transfer Learning"],
+      "problem": "Adapt traffic-speed forecasting models across datasets with different spatial patterns.",
+      "approach": [
+        "Stacked LSTM networks for temporal modeling.",
+        "PCA-based feature alignment between PEMS-BAY and METR-LA.",
+        "Batch normalization and dropout to help reduce domain shift."
+      ],
+      "stack": ["Python", "TensorFlow", "LSTM", "Transfer Learning", "PCA"]
+    },
+    {
+      "title": "Connect 4 × Minimax",
+      "desc": "Designed and implemented the classic Connect 4 game with a graphical user interface supporting PvP and PvAI modes. Built an AI opponent using the Minimax algorithm with adjustable difficulty levels, reducing response time by 20%.",
+      "link": "https://github.com/EyadEldokany/connect4_game",
+      "id": "connect",
+      "visible": true,
+      "category": "Machine Learning",
+      "type": "Search algorithms · game AI",
+      "art": "connect",
+      "summary": "A classic game with an AI opponent that thinks several moves ahead.",
+      "tags": ["Python", "Minimax", "Tkinter"],
+      "problem": "Create a graphical Connect 4 game with a configurable AI opponent.",
+      "approach": [
+        "Player-versus-player and player-versus-AI modes.",
+        "A Minimax search algorithm with adjustable difficulty.",
+        "A graphical interface built with Python and Tkinter."
+      ],
+      "stack": ["Python", "Tkinter", "Minimax", "GUI Development"]
+    }
+  ],
+  "skills": [
+    {
+      "icon": "🧠",
+      "name": "AI / ML",
+      "pills": "PyTorch,TensorFlow,Keras,scikit-learn,YOLOv11,OpenCV,HuggingFace,MLflow"
+    },
+    {
+      "icon": "🤖",
+      "name": "LLMs & Agents",
+      "pills": "AWS Bedrock,LangChain,RAG,ACE Framework,Prompt Eng.,Qdrant,Cohere,NVIDIA NIM"
+    },
+    {
+      "icon": "💻",
+      "name": "Languages",
+      "pills": "Python,Java,C++,C,JavaScript,HTML/CSS,SQL"
+    },
+    {
+      "icon": "🚀",
+      "name": "Backend & APIs",
+      "pills": "FastAPI,Flask,Streamlit,REST APIs,RabbitMQ,Celery"
+    },
+    {
+      "icon": "☁️",
+      "name": "Cloud & DevOps",
+      "pills": "AWS,Docker,Vercel,Git,DynamoDB,Railway"
+    },
+    {
+      "icon": "📊",
+      "name": "Data Science",
+      "pills": "NumPy,Pandas,Matplotlib,Plotly,SciPy,XGBoost"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "agents",
+      "title": "Agentic AI & LLMs",
+      "short": "Agents & LLMs",
+      "icon": "agents",
+      "description": "Context-aware systems that retrieve, reason, use tools, and turn conversation into action.",
+      "stages": [
+        "User context",
+        "Retrieval + tools",
+        "Agent reasoning",
+        "Structured output"
+      ],
+      "tools": [
+        "AWS Bedrock",
+        "LangChain",
+        "RAG",
+        "ACE Framework",
+        "Qdrant",
+        "Cohere",
+        "NVIDIA NIM"
+      ],
+      "projectIds": ["healthbridge", "codenova"],
+      "detail": "I build multi-agent workflows, retrieval-augmented reasoning, and tool-calling applications — with the APIs and persistence around them."
+    },
+    {
+      "id": "vision",
+      "title": "Computer Vision",
+      "short": "Computer vision",
+      "icon": "vision",
+      "description": "From raw pixels to recognition, detection, and real-time tracking.",
+      "stages": [
+        "Images / video",
+        "Preprocessing",
+        "Detect + recognize",
+        "Application"
+      ],
+      "tools": [
+        "PyTorch",
+        "YOLOv11",
+        "YOLOv8",
+        "OpenCV",
+        "InsightFace",
+        "FAISS",
+        "TensorFlow"
+      ],
+      "projectIds": ["attendance", "traffic", "mri"],
+      "detail": "My work covers object detection, facial recognition, medical image classification, and edge-oriented video systems."
+    },
+    {
+      "id": "learning",
+      "title": "Machine Learning & Data",
+      "short": "Machine learning",
+      "icon": "learning",
+      "description": "Predictive models, time-series learning, and careful evaluation from the ground up.",
+      "stages": [
+        "Raw data",
+        "Feature engineering",
+        "Train + evaluate",
+        "Prediction"
+      ],
+      "tools": [
+        "scikit-learn",
+        "XGBoost",
+        "Pandas",
+        "NumPy",
+        "TensorFlow",
+        "LSTM",
+        "Matplotlib"
+      ],
+      "projectIds": ["neo", "speed", "connect"],
+      "detail": "I work across ensemble learning, forecasting, and transfer learning, with an emphasis on making the whole data-to-model pipeline reproducible."
+    },
+    {
+      "id": "production",
+      "title": "Production Engineering",
+      "short": "Production systems",
+      "icon": "production",
+      "description": "The layer between a good model and a product people can actually use.",
+      "stages": [
+        "AI models",
+        "API services",
+        "Containerize",
+        "Deploy + observe"
+      ],
+      "tools": [
+        "FastAPI",
+        "Flask",
+        "Docker",
+        "AWS",
+        "DynamoDB",
+        "RabbitMQ",
+        "Celery",
+        "Git"
+      ],
+      "projectIds": ["codenova", "healthbridge", "face"],
+      "detail": "I connect models to APIs, databases, asynchronous workflows, and cloud deployments — keeping architecture and observability in the picture."
+    }
+  ],
+  "heroModes": [
+    {
+      "id": "agents",
+      "label": "Agentic AI",
+      "nodes": [
+        {
+          "title": "CONTEXT",
+          "value": "Retrieval + memory",
+          "detail": "RAG, vector search, and contextual retrieval give the system something useful to reason over."
+        },
+        {
+          "title": "REASONING",
+          "value": "LLMs + agents",
+          "detail": "Specialized agents coordinate reasoning and tool use, as in HealthBridge and CodeNova."
+        },
+        {
+          "title": "TOOLS",
+          "value": "APIs + execution",
+          "detail": "Tool-calling loops connect language models to files, code execution, and application services."
+        },
+        {
+          "title": "OUTPUT",
+          "value": "Real applications",
+          "detail": "FastAPI services, persistence, and containerized deployment turn the workflow into a usable product."
+        }
+      ]
+    },
+    {
+      "id": "vision",
+      "label": "Computer vision",
+      "nodes": [
+        {
+          "title": "INPUT",
+          "value": "Images + video",
+          "detail": "Real-time video streams and image datasets form the input to detection and recognition systems."
+        },
+        {
+          "title": "MODELS",
+          "value": "YOLO + PyTorch",
+          "detail": "Custom-trained detection and classification models extract meaning from the pixels."
+        },
+        {
+          "title": "IDENTITY",
+          "value": "Embeddings + search",
+          "detail": "InsightFace and FAISS connect face embeddings to fast similarity search in the attendance pipeline."
+        },
+        {
+          "title": "DEPLOY",
+          "value": "Edge + cloud",
+          "detail": "Model inference connects to APIs, tracking logic, and applications built to run beyond the notebook."
+        }
+      ]
+    },
+    {
+      "id": "production",
+      "label": "Production ML",
+      "nodes": [
+        {
+          "title": "MODELS",
+          "value": "Trained intelligence",
+          "detail": "A trained model is a component of the system, not the end of the engineering work."
+        },
+        {
+          "title": "SERVICES",
+          "value": "FastAPI + Flask",
+          "detail": "Well-defined service boundaries connect inference and reasoning workflows to the application."
+        },
+        {
+          "title": "INFRA",
+          "value": "Docker + AWS",
+          "detail": "Containerized services and cloud infrastructure make the system portable and deployable."
+        },
+        {
+          "title": "VISIBILITY",
+          "value": "Monitor + iterate",
+          "detail": "Prometheus and Grafana observability are part of the HealthBridge architecture."
+        }
+      ]
+    }
+  ],
+  "certHighlights": ["c1790540344102", "c3", "c1", "c5"]
+}

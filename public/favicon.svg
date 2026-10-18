@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-labelledby="logo-title">
+  <title id="logo-title">Eyad Eldokany — EE monogram</title>
+  <defs>
+    <linearGradient id="silver" x1="48" y1="14" x2="88" y2="130" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#dce6f4"/>
+    </linearGradient>
+    <linearGradient id="electric-blue" x1="61" y1="128" x2="164" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1174d8"/>
+      <stop offset=".38" stop-color="#159fff"/>
+      <stop offset=".72" stop-color="#2ca7ff"/>
+      <stop offset="1" stop-color="#3187fa"/>
+    </linearGradient>
+    <linearGradient id="cobalt" x1="107" y1="80" x2="183" y2="131" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2ba6ff"/>
+      <stop offset=".55" stop-color="#327cf9"/>
+      <stop offset="1" stop-color="#4546f3"/>
+    </linearGradient>
+    <linearGradient id="ribbon-fold" x1="54" y1="119" x2="78" y2="127" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1668bd"/>
+      <stop offset="1" stop-color="#278be9"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="44" fill="#070b14"/>
+  <g transform="translate(-31 26) scale(1.4)">
+    <path fill="url(#silver)" d="M66 14h72l-19 18H53v31h37L72 81H53v29c0 4 3 6 9 7h6l-8 13c-16-4-26-14-26-27V43c0-17 14-29 32-29Z"/>
+    <path fill="url(#cobalt)" d="M126 72h48v20h-54v21h72l-19 19h-71V98Z"/>
+    <path fill="url(#electric-blue)" d="M135 30h59l-20 21h-39l-65 75c-4 5-9 7-14 3-6-4-5-10-1-15l75-81c2-2 3-3 5-3Z"/>
+    <path fill="url(#ribbon-fold)" d="M56 113h25l-11 13c-4 5-9 7-14 3-5-3-5-9 0-16Z"/>
+  </g>
+</svg>
