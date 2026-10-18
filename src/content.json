@@ -14,7 +14,7 @@
     {
       "desc": "Fundamental training in deep learning concepts, neural networks, and building models with Keras.",
       "id": "c2",
-      "img": "https://drive.google.com/thumbnail?id=1a_mboQiBMQv5tetrdLaMBcb1uKnvd1YH&sz=w1000",
+      "img": "https://drive.google.com/thumbnail?id=1vcaaM8XDzieToXrZOlfmIXvMrY13hb4Y&sz=w1000",
       "issuer": "IBM",
       "link": "https://www.coursera.org/account/accomplishments/records/DBMK9G5ETWRI",
       "date": "2025",
@@ -170,7 +170,8 @@
     "heroEducation": {
       "degree": "CS & AI",
       "school": "EELU",
-      "classOf": "2026"
+      "classOf": "2026",
+      "gpa": "3.74/4.00 (Excellent)"
     }
   },
   "edu": [
@@ -181,6 +182,7 @@
       "desc": "Specializing in AI/ML, computer vision, cloud computing (AWS), and software engineering. Graduation project: HealthBridge — Multimodal Medical AI Platform.",
       "icon": "🎓",
       "title": "B.Sc. Computer Science and Artificial Intelligence",
+      "gpa": "3.74/4.00 (Excellent)",
       "visible": true
     }
   ],
@@ -370,7 +372,7 @@
       "id": "healthbridge",
       "visible": true,
       "title": "HealthBridge",
-      "link": "https://github.com/EyadEldokany/Medical-Analysis-and-Healthcare-Platform",
+      "link": "https://github.com/EyadEldokany/medical_grad_project",
       "category": "Agentic AI",
       "type": "Multimodal medical AI",
       "art": "healthbridge",

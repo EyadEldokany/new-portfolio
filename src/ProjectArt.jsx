@@ -56,7 +56,7 @@ export function HealthArchitecture({ detailed = false }) {
       <div className="ace-core">
         <div className="ace-core-label">
           <BrainCircuit size={18} />
-          <span>AGENTIC CONTEXT ENGINE</span>
+          <span>AGENTIC CONTEXT ENGINEERING</span>
           <Cpu size={15} />
         </div>
         <div className="ace-chain">
